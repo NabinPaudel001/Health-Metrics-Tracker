@@ -2,39 +2,39 @@
 include('connect.php');
 if (isset($_POST['submit'])) {
 
-  // NEW CODE FOR SECURITY
-  // For Santizing User inputs:
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $password = mysqli_real_escape_string($conn, $_POST['password']);
+    // NEW CODE FOR SECURITY
+    // For Santizing User inputs:
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-  // Preventing SQL injection
-  $sql = "SELECT * FROM login WHERE email=? AND password=?";
-  $stmt = mysqli_prepare($conn, $sql);
-  mysqli_stmt_bind_param($stmt, "ss", $email, $password);
-  mysqli_stmt_execute($stmt);
+    // Preventing SQL injection
+    $sql = "SELECT * FROM login WHERE email=? AND password=?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+    mysqli_stmt_execute($stmt);
 
-  $result = mysqli_stmt_get_result($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
-  // Fetch user data
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    // Fetch user data
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-  // Count the number of rows
-  $count = mysqli_num_rows($result);
+    // Count the number of rows
+    $count = mysqli_num_rows($result);
 
-  if ($count == 1) {
-    // Redirect with sanitized and escaped data
-    $redirect_url = "welcomelogin.php";
-    header("Location: " . $redirect_url);
-    exit();
-  } else {
-    header("Location: index.html");
-    exit();
-  }
+    if ($count == 1) {
+        // Redirect with sanitized and escaped data
+        $redirect_url = "welcomelogin.php";
+        header("Location: " . $redirect_url);
+        exit();
+    } else {
+        header("Location: index.html");
+        exit();
+    }
 }
 ?>
 
 
-// // Old inputs:
+<!-- // // Old inputs:
 // $email=$_POST['email'];
 // $Password=$_POST['password'];
 // // Old Code
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 // exit();
 // }
 // }
-// ?>
+// ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Your Bootstrap Page</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -76,6 +76,7 @@ if (isset($_POST['submit'])) {
     <link
         href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans&family=Lato:ital,wght@1,300&family=Roboto+Serif:opsz@8..144&family=Ysabeau+SC&display=swap"
         rel="stylesheet">
+    <link href="/output.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -134,7 +135,7 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                                 <div class="text-white px-3 py-4 p-md-5 ">
-                                    <h4 class="mb-4">We are more than just a company</h4>
+                                    <h4 class="mb-4 text-red-400">We are more than just a company</h4>
                                     <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                                         do eiusmod
                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
