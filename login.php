@@ -44,11 +44,21 @@ if (isset($_POST['login'])) {
   <!-- Font Awesome CSS for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+<<<<<<< HEAD
   <!-- Add your custom stylesheets here if needed -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans&family=Lato:ital,wght@1,300&family=Roboto+Serif:opsz@8..144&family=Ysabeau+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style_login.css">
+=======
+    <!-- Add your custom stylesheets here if needed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans&family=Lato:ital,wght@1,300&family=Roboto+Serif:opsz@8..144&family=Ysabeau+SC&display=swap"
+        rel="stylesheet">
+    <!-- <link href="/output.css" rel="stylesheet" /> -->
+>>>>>>> c2380099e6974340da4d800ac3b6cfbc25a0a2b1
 </head>
 <body>
 
