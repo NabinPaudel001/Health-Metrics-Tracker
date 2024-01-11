@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
 
   if ($count == 1) {
     // Redirect with sanitized and escaped data
-    $redirect_url = "welcomelogin.php";
+    $redirect_url = "welcome.php";
     header("Location: " . $redirect_url);
     exit();
   } else {
