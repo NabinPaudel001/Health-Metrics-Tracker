@@ -1,32 +1,56 @@
-<!-- Preloader Start -->
-<div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img src="assets/img/logo/loder.png" alt="" />
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Preloader End -->
-
 <main>
     <!--? Slider Area Start-->
-    <div class="slider-area slider-area2">
+    <div class="slider-area">
         <div class="slider-active dot-style">
             <!-- Slider Single -->
-            <div class="single-slider d-flex align-items-center slider-height2">
+            <div class="single-slider d-flex align-items-center slider-height">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-7 col-lg-8 col-md-10">
                             <div class="hero-wrapper">
+                                <!-- Video icon -->
+                                <div class="video-icon">
+                                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
+                                        <i class="fas fa-play"></i>
+                                    </a>
+                                </div>
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInUp" data-delay=".3s">About</h1>
+                                    <h1 data-animation="fadeInUp" data-delay=".3s">
+                                        Health is wealth keep it healthy
+                                    </h1>
                                     <p data-animation="fadeInUp" data-delay=".6s">
                                         Almost before we knew it, we<br />
                                         had left the ground
                                     </p>
+                                    <a href="index.php?page=services" class="btn" data-animation="fadeInLeft" data-delay=".3s">Take a Service</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Single -->
+            <div class="single-slider d-flex align-items-center slider-height">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-7 col-lg-8 col-md-10">
+                            <div class="hero-wrapper">
+                                <!-- Video icon -->
+                                <div class="video-icon">
+                                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
+                                        <i class="fas fa-play"></i>
+                                    </a>
+                                </div>
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInUp" data-delay=".3s">
+                                        Health is wealth keep it healthy
+                                    </h1>
+                                    <p data-animation="fadeInUp" data-delay=".6s">
+                                        Almost before we knew it, we<br />
+                                        had left the ground
+                                    </p>
+                                    <a href="index.php?page=services" class="btn" data-animation="fadeInLeft" data-delay=".3s">Take a
+                                        Service</a>
                                 </div>
                             </div>
                         </div>
@@ -36,57 +60,6 @@
         </div>
     </div>
     <!-- Slider Area End -->
-    <!--? Team Area Start-->
-    <section class="team-area pb-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-cat text-center mb-30">
-                        <div class="cat-icon">
-                            <img src="assets/img/gallery/team1.png" alt="" />
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="#">Your daily meal plan</a></h5>
-                            <p>
-                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                dignissim dolor, a pretium mi sem ut ipsum.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-cat text-center mb-30">
-                        <div class="cat-icon">
-                            <img src="assets/img/gallery/team2.png" alt="" />
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="#">Muscle Gain</a></h5>
-                            <p>
-                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                dignissim dolor, a pretium mi sem ut ipsum.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-cat text-center mb-30">
-                        <div class="cat-icon">
-                            <img src="assets/img/gallery/team3.png" alt="" />
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="#">Weight Loss</a></h5>
-                            <p>
-                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                dignissim dolor, a pretium mi sem ut ipsum.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--? Team End-->
-    <!-- Services End-->
     <!--? About-2 Area Start -->
     <div class="about-area2 section-padding40">
         <div class="container">
@@ -98,7 +71,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-12">
-                    <div class="about-caption mb-50">
+                    <div class="about-caption">
                         <!-- Section Tittle -->
                         <div class="section-tittle mb-35">
                             <h2>Create a healthy life you love!</h2>
@@ -120,6 +93,80 @@
             </div>
         </div>
     </div>
+    <!-- About-2 Area End -->
+    <section class="wantToWork-area section-bg3" data-background="assets/img/gallery/section_bg01.png">
+        <div class="container">
+            <div class="wants-wrapper w-padding2">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-xl-7 col-lg-9 col-md-8">
+                        <div class="wantToWork-caption wantToWork-caption2">
+                            <h2>Happy mind <br />healthy life</h2>
+                            <p>
+                                Almost before we knew it, we<br />
+                                had left the ground
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4">
+                        <a href="services.html" class="btn f-right sm-left">Take a Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--? Services Area Start -->
+    <div class="service-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-cat text-center mb-50">
+                        <div class="cat-icon">
+                            <img src="assets/img/icon/services1.svg" alt="" />
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Physical Activity</a></h5>
+                            <p>
+                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
+                                dignissim dolor, a pretium mi sem ut ipsum.
+                            </p>
+                            <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-cat text-center mb-50">
+                        <div class="cat-icon">
+                            <img src="assets/img/icon/services2.svg" alt="" />
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Physical Activity</a></h5>
+                            <p>
+                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
+                                dignissim dolor, a pretium mi sem ut ipsum.
+                            </p>
+                            <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-cat text-center mb-50">
+                        <div class="cat-icon">
+                            <img src="assets/img/icon/services3.svg" alt="" />
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Physical Activity</a></h5>
+                            <p>
+                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
+                                dignissim dolor, a pretium mi sem ut ipsum.
+                            </p>
+                            <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services Area End -->
     <!--? Testimonial Area Start -->
     <section class="testimonial-area testimonial-padding fix">
         <div class="container">
@@ -271,7 +318,7 @@
                                 <h2>100% satisfaction guaranteed.</h2>
                             </div>
                             <p>Almost before we knew it, we had left the ground</p>
-                            <a href="index.php?page=about" class="border-btn">Make an Appointment</a>
+                            <a href="about.html" class="border-btn">Make an Appointment</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
@@ -288,10 +335,14 @@
     </section>
     <!-- About Law End-->
 </main>
+
 <!-- Scroll Up -->
 <div id="back-top">
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
+
+
+
 
 <!-- JS here -->
 

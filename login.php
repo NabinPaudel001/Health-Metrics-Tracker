@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
     <link
         href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans&family=Lato:ital,wght@1,300&family=Roboto+Serif:opsz@8..144&family=Ysabeau+SC&display=swap"
         rel="stylesheet">
-    <link href="/output.css" rel="stylesheet" />
+    <!-- <link href="/output.css" rel="stylesheet" /> -->
 </head>
 
 <body>

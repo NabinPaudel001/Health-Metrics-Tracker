@@ -20,10 +20,10 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="../index.php">Home</a></li>
-                                        <li><a href="../about.php">About</a></li>
+                                        <li><a href="index.php?page=about">About</a></li>
                                         <!-- <li><a href="services.html">Services</a></li> -->
                                         <li>
-                                            <a href="../services.php">Service</a>
+                                            <a href="index.php?page=services">Service</a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">BMI Calculator</a></li>
                                                 <li>
@@ -40,7 +40,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="../contact.php">Contact</a></li>
+                                        <li><a href="index.php?page=contact">Contact</a></li>
 
                                         <!-- Added login and signup buttons in the navigation bar -->
                                         <li><a href="../login.php" class="d-block d-md-none">Login</a></li>

@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-wrappr section-bg3" data-background="assets/img/gallery/footer-bg.png">
+    <div class="footer-wrappr section-bg3" data-background-image="assets\img\gallery\footer-bg.png">
         <div class="footer-area footer-padding">
             <div class="container">
                 <div class="row justify-content-between">
@@ -7,7 +7,7 @@
                         <div class="single-footer-caption mb-50">
                             <!-- logo -->
                             <div class="footer-logo mb-25">
-                                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt="" /></a>
+                                <a href="../index.php"><img src="assets/img/logo/logo2_footer.png" alt="" /></a>
                             </div>
                             <d iv class="header-area">
                                 <div class="main-header main-header2">
@@ -16,11 +16,11 @@
                                         <div class="main-menu main-menu2">
                                             <nav>
                                                 <ul>
-                                                    <li><a href="index.php">Home</a></li>
-                                                    <li><a href="about.php">About</a></li>
-                                                    <li><a href="services.php">Services</a></li>
+                                                    <li><a href="../index.php">Home</a></li>
+                                                    <li><a href="index.php?page=about">About</a></li>
+                                                    <li><a href="index.php?page=services">Services</a></li>
                                                     <li><a href="blog.php">Blog</a></li>
-                                                    <li><a href="contact.php">Contact</a></li>
+                                                    <li><a href="index.php?page=contact">Contact</a></li>
                                                 </ul>
                                             </nav>
                                         </div>
@@ -43,16 +43,10 @@
                             <!-- Form -->
                             <div class="footer-form">
                                 <div id="mc_embed_signup">
-                                    <form target="_blank"
-                                        action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                        method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                        <input type="email" name="EMAIL" id="newsletter-form-email"
-                                            placeholder=" Email Address " class="placeholder hide-on-focus"
-                                            onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Enter your email'" />
+                                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
+                                        <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'" />
                                         <div class="form-icon">
-                                            <button type="submit" name="submit" id="newsletter-submit"
-                                                class="email_icon newsletter-submit button-contactForm">
+                                            <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
                                                 Subscribe
                                             </button>
                                         </div>
