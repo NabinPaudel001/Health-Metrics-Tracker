@@ -12,7 +12,7 @@
   <h1 class="px-3 bg-red-600 font-bold text-6xl">
     Something testing for tailwinds and daisy ui.
   </h1>
-  <button class="btn btn-secondary">Hello</button>
+  <button class="btn btn-primary">Hello</button>
 </body>
 
 </html>
