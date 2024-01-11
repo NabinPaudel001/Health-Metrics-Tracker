@@ -64,8 +64,6 @@ if (isset($_POST['login'])) {
 // }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +83,7 @@ if (isset($_POST['login'])) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans&family=Lato:ital,wght@1,300&family=Roboto+Serif:opsz@8..144&family=Ysabeau+SC&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style_login.css">
+  <link rel="stylesheet" href="/styles/style_login.css">
 </head>
 
 <body>
