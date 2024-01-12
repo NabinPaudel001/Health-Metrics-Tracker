@@ -1,0 +1,6 @@
+CREATE TABLE health_data (
+    health_id INT AUTO_INCREMENT PRIMARY KEY,
+    bmi DECIMAL(5,2) NOT NULL,
+    bmr DECIMAL(10,2) NOT NULL,
+    mbr DECIMAL(10,2) NOT NULL
+);

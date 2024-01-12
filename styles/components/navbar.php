@@ -25,19 +25,19 @@
                                         <li>
                                             <a href="index.php?page=services">Service</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">BMI Calculator</a></li>
+                                                <li><a href="BMI.php">BMI Calculator</a></li>
                                                 <li>
-                                                    <a href="blog_details.html">BMR Calculator</a>
+                                                    <a href="BMR.php">BMR Calculator</a>
                                                 </li>
-                                                <li>
+                                                <!-- <li>
                                                     <a href="elements.html">Pregnancy Tracker</a>
-                                                </li>
+                                                </li> -->
                                                 <li>
-                                                    <a href="elements.html">Mean BP Calculator</a>
+                                                    <a href="pressure.php">Mean BP Calculator</a>
                                                 </li>
-                                                <li>
+                                                <!-- <li>
                                                     <a href="elements.html">Calories Recommender</a>
-                                                </li>
+                                                </li> -->
                                             </ul>
                                         </li>
                                         <li><a href="index.php?page=contact">Contact</a></li>
