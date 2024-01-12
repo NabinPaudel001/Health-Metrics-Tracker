@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="BMR_style.css">
+    <link rel="stylesheet" href="pressure.css">
 </head>
 
 <body>
@@ -67,7 +67,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" style="
+            padding-bottom: 8rem;
+            ">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
                         <form id="bpForm">
