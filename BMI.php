@@ -1,3 +1,7 @@
+<?php
+        include 'connect.php';
+        session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 

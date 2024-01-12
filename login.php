@@ -1,30 +1,37 @@
-
 <?php
+session_start();
 include 'connect.php';
+if (isset($_SESSION['Name'])) {
+  header("Location: index.php");
+}
 
 // Ensure that form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
-    // Retrieve hashed password from the database based on the provided email
-    $stmt = $conn->prepare("SELECT Password FROM user WHERE Email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->bind_result($hashed_password);
-    $stmt->fetch();
-    $stmt->close();
+  // Retrieve hashed password from the database based on the provided email
+  $stmt = $conn->prepare("SELECT UserID, Name, Password FROM user WHERE Email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $stmt->bind_result($userID, $name, $hashed_password);
+  $stmt->fetch();
+  $stmt->close();
 
-    // Verify the entered password with the hashed password from the database
-    if (password_verify($password, $hashed_password)) {
-        echo "Login successful!";
-        // Additional actions after successful login can be added here
-    } else {
-        echo "Invalid email or password.";
-    }
+  // Verify the entered password with the hashed password from the database
+  if (password_verify($password, $hashed_password)) {
+    $_SESSION['UserID'] = $userId;
+    $_SESSION['Name'] = $name;
+    $_SESSION['Email'] = $email;
+    // Additional actions after successful login can be added here
+    header("Location: dashboard\pages\app.php");
+    exit();
+  } else {
+    echo "Invalid email or password.";
+  }
 
-    // Close the database connection
-    $conn->close();
+  // Close the database connection
+  $conn->close();
 }
 ?>
 
