@@ -38,8 +38,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             $bmr = 66 + (13.7 * $week_weight) + (5 * $height) - (6.8 * $age);
             $bmr_values[$week] = $bmr;
         } else {
-            $bmi_values[$week] = "NA";
-            $bmr_values[$week] = "NA";
+            $bmi_values[$week] = 0;
+            $bmr_values[$week] = 0;
         }
     }
 

@@ -12,7 +12,7 @@
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Your BMI</p>
-              <h4 class="mb-0">26.4</h4>
+              <h4 class="mb-0">XXXX</h4>
             </div>
           </div>
           <hr class="dark horizontal my-0" />
@@ -50,7 +50,7 @@
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Mean Blood pressure</p>
-              <h4 class="mb-0">3,462</h4>
+              <h4 class="mb-0">XXXX</h4>
             </div>
           </div>
           <hr class="dark horizontal my-0" />
@@ -69,7 +69,7 @@
               <i class="material-icons opacity-10">weekend</i>
             </div>
             <div class="text-end pt-1">
-              <p class="text-sm mb-0 text-capitalize">Some Other Status</p>
+              <p class="text-sm mb-0 text-capitalize">Weight</p>
               <h4 class="mb-0">XXXXXX</h4>
             </div>
           </div>
