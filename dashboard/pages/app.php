@@ -1,3 +1,7 @@
+<?php
+include '../../connect.php';
+include 'page-auth.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 

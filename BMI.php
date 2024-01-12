@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form id="bmiForm" method="POST" action="store_healthrecord.php"  onsubmit="submitForm(); return false;">
+                        <form id="bmiForm" method="POST" action="store_BMI.php"  onsubmit="submitForm(); return false;">
                             <div class="form-group">
                                 <label for="height" class="weight_height">Height (cm):</label>
                                 <input type="number" name="height" class="form-control" style="height: 35px;" id="height" placeholder="Enter height">
@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     var xhr = new XMLHttpRequest();
 
                  // Specify the type of request, the URL, and whether the request should be asynchronous
-                 xhr.open('POST', 'store_healthrecord.php', true);
+                 xhr.open('POST', 'store_BMI.php', true);
 
                     // Set the request header
                  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

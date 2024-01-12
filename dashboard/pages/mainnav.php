@@ -7,32 +7,34 @@
                     <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
                 </li>
                 <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
+                    Dashboard
                     <?php
                     $page = isset($_GET['page']) ? $_GET['page'] : '';
 
-                    switch ($page) {
-                        case 'notifications':
-                            $text = "Notifications";
-                            echo ($text);
-                            break;
-                        case 'profile':
-                            $text = "Profile";
-                            echo ($text);
-                            break;
-                        case 'tables':
-                            $text = "Tables";
-                            echo ($text);
-                            break;
-                        default:
-                            $text = "Dashboard";
-                            echo ($text);
-                            break;
-                    }
+                    // switch ($page) {
+                    //     case 'notifications':
+                    //         $text = "Notifications";
+                    //         echo ($text);
+                    //         break;
+                    //     case 'profile':
+                    //         $text = "Profile";
+                    //         echo ($text);
+                    //         break;
+                    //     case 'tables':
+                    //         $text = "Tables";
+                    //         echo ($text);
+                    //         break;
+                    //     default:
+                    //         $text = "Dashboard";
+                    //         echo ($text);
+                    //         break;
+                    // }
                     ?>
                 </li>
             </ol>
             <h6 class="font-weight-bolder mb-0">
-                <?php echo ($text); ?>
+                <?php
+                echo $_SESSION['Name'] ?>
             </h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
