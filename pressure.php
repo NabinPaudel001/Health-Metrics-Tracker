@@ -72,16 +72,17 @@
             ">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form id="bpForm">
+                        <form id="bpForm" method="post" action="store_pressure.php" onsubmit="submitForm(); return false;">
                             <div class="form-group">
-                                <label for="systolic" class="input-label">Systolic Pressure:</label>
-                                <input type="number" class="form-control" style="height: 35px;" id="systolic" placeholder="Enter systolic pressure">
+                                <label for="systolic" name="systolic" class="input-label">Systolic Pressure:</label>
+                                <input type="number"  class="form-control" style="height: 35px;" id="systolic" placeholder="Enter systolic pressure">
                             </div>
                             <div class="form-group">
                                 <label for="diastolic" class="input-label">Diastolic Pressure:</label>
-                                <input type="number" class="form-control" style="height: 35px;" id="diastolic" placeholder="Enter diastolic pressure">
+                                <input type="number" name="diastolic" class="form-control" style="height: 35px;" id="diastolic" placeholder="Enter diastolic pressure">
                             </div>
-                            <button type="button" class="btn-outline-success py-2 btn-block" onclick="calculateBloodPressure()">Calculate</button>
+                            <!-- <input type="text" id="mbp" name="mbp"> -->
+                            <button type="submit" class="btn-outline-success py-2 btn-block" >Calculate</button>
                         </form>
 
                         <div id="result" class="fade"></div>
@@ -96,14 +97,14 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
             <script>
-                function calculateBloodPressure() {
+                function submitForm() {
                     var systolic = parseFloat(document.getElementById('systolic').value);
                     var diastolic = parseFloat(document.getElementById('diastolic').value);
 
+                    var MBP = (systolic + (2 * diastolic)) / 3;
                     if (systolic && diastolic) {
                         var resultDiv = document.getElementById('result');
                         var category;
-                        var MBP = (systolic + (2 * diastolic)) / 3;
 
                         if (MBP > 0 && MBP <= 93.33) {
                             category = 'Optimal';
@@ -133,7 +134,34 @@
                     } else {
                         alert('Please enter both systolic and diastolic pressures.');
                     }
+                    var systolic =parseFloat( document.getElementById('systolic').value);
+                    var diastolic=parseFloat( document.getElementById('diastolic').value);
+                    // var mbp=document.getElementById('mbp').value;
+                   
+                    var xhr = new XMLHttpRequest();
+
+                 // Specify the type of request, the URL, and whether the request should be asynchronous
+                 xhr.open('POST', 'store_pressure.php', true);
+
+                    // Set the request header
+                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                                // Define the data to be sent to the server
+                    var data = 'systolic=' + systolic + '&diastolic=' + diastolic  ;
+
+                                // Set the callback function to handle the response from the server
+                 xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Display the server response
+                // document.getElementById('result').innerHTML = xhr.responseText;
+            }
+         };
+
+                        // Send the data to the server
+                    xhr.send(data);
+                    // Get values from input fields
                 }
+                
             </script>
             <footer>
                 <div class="footer-wrappr section-bg3" data-background="assets/img/gallery/footer-bg.png">

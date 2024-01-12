@@ -14,19 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    // $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-    // $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    // $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-    // $gender = mysqli_real_escape_string($conn, $_POST['gender']);
-    // $dob = mysqli_real_escape_string($conn, $_POST['dob']);
-    // $address = mysqli_real_escape_string($conn, $_POST['address']);
-    // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    // $Cpassword = password_hash($_POST['Cpassword'], PASSWORD_DEFAULT);
+   
 
     // Check Password
     if ($_POST['password'] == $_POST['Cpassword']) {
-        // $stmt = $conn->prepare("INSERT INTO user (Name, Email, Phone, Gender, DateOfBirth, Address, Password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        // $stmt->bind_param("sssssss", $fname, $email, $phone, $gender, $dob, $address, $password);
+        
         $sql = "INSERT INTO user (Name, Email, Phone, Gender, DateOfBirth, Address, Password) VALUES ('$fname', '$email', '$phone', '$gender', '$dob', '$address', '$password')";
         if ($conn->query($sql) === TRUE) {
             echo "Registration successful!";
