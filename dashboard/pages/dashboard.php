@@ -94,12 +94,12 @@
             </div>
           </div>
           <div class="card-body">
-            <h6 class="mb-0">Exercises</h6>
-            <p class="text-sm">Exercises over the week</p>
+            <h6 class="mb-0">Your MBP</h6>
+            <p class="text-sm">Mean Blood Pressure over a week</p>
             <hr class="dark horizontal" />
             <div class="d-flex">
               <i class="material-icons text-sm my-auto me-1">schedule</i>
-              <p class="mb-0 text-sm">somedetial sent 2 days ago</p>
+              <p class="mb-0 text-sm">some detail sent 2 days ago</p>
             </div>
           </div>
         </div>
@@ -114,10 +114,10 @@
             </div>
           </div>
           <div class="card-body">
-            <h6 class="mb-0">Calories Burnt</h6>
+            <h6 class="mb-0">Your BMI</h6>
             <p class="text-sm">
-              (<span class="font-weight-bolder">+XXXX</span>) increase in
-              something.
+              (<span class="font-weight-bolder">+XXXX</span>)
+              Or, Changes in Body Mass Index (BMI) over 5 weeks
             </p>
             <hr class="dark horizontal" />
             <div class="d-flex">
@@ -137,8 +137,8 @@
             </div>
           </div>
           <div class="card-body">
-            <h6 class="mb-0">Your Weight</h6>
-            <p class="text-sm">Changes in Weight over the year</p>
+            <h6 class="mb-0">Your BMR</h6>
+            <p class="text-sm">Changes in Basal Metabolic Rate (BMR) over 5 weeks</p>
             <hr class="dark horizontal" />
             <div class="d-flex">
               <i class="material-icons text-sm my-auto me-1">schedule</i>
@@ -644,269 +644,263 @@
 <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="../assets/js/plugins/chartjs.min.js"></script>
 <script>
-  var ctx = document.getElementById("chart-bars").getContext("2d");
+  fetch('display-info.php')
+    .then(response => response.json())
+    .then(data => {
+      // Extract BMI and BMR data
+      const bmiData = data.map(item => item.bmi_values);
+      const bmrData = data.map(item => item.bmr_values);
+      const mbpData = data.map(item => item.mbp_values);
 
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["M", "T", "W", "T", "F", "S", "S"],
-      datasets: [{
-        label: "Exercises",
-        tension: 0.4,
-        borderWidth: 0,
-        borderRadius: 4,
-        borderSkipped: false,
-        backgroundColor: "rgba(255, 255, 255, .8)",
-        data: [50, 20, 10, 22, 50, 10, 40],
-        maxBarThickness: 6,
-      }, ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-      interaction: {
-        intersect: false,
-        mode: "index",
-      },
-      scales: {
-        y: {
-          grid: {
-            drawBorder: false,
-            display: true,
-            drawOnChartArea: true,
-            drawTicks: false,
-            borderDash: [5, 5],
-            color: "rgba(255, 255, 255, .2)",
-          },
-          ticks: {
-            suggestedMin: 0,
-            suggestedMax: 500,
-            beginAtZero: true,
-            padding: 10,
-            font: {
-              size: 14,
-              weight: 300,
-              family: "Roboto",
-              style: "normal",
-              lineHeight: 2,
-            },
-            color: "#fff",
-          },
-        },
-        x: {
-          grid: {
-            drawBorder: false,
-            display: true,
-            drawOnChartArea: true,
-            drawTicks: false,
-            borderDash: [5, 5],
-            color: "rgba(255, 255, 255, .2)",
-          },
-          ticks: {
-            display: true,
-            color: "#f8f9fa",
-            padding: 10,
-            font: {
-              size: 14,
-              weight: 300,
-              family: "Roboto",
-              style: "normal",
-              lineHeight: 2,
-            },
-          },
-        },
-      },
-    },
-  });
+      // Labels for the charts
+      // const labels = Object.keys(bmiData[0]); // Assuming all users have the same weeks
+      const mbrlabel = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7'];
+      const labels = ['Week1', 'Week2', 'Week3', 'Week4', 'Week5'];
 
-  var ctx2 = document.getElementById("chart-line").getContext("2d");
+      var ctx = document.getElementById("chart-bars").getContext("2d");
 
-  new Chart(ctx2, {
-    type: "line",
-    data: {
-      labels: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      datasets: [{
-        label: "Calories Burnt",
-        tension: 0,
-        borderWidth: 0,
-        pointRadius: 5,
-        pointBackgroundColor: "rgba(255, 255, 255, .8)",
-        pointBorderColor: "transparent",
-        borderColor: "rgba(255, 255, 255, .8)",
-        borderColor: "rgba(255, 255, 255, .8)",
-        borderWidth: 4,
-        backgroundColor: "transparent",
-        fill: true,
-        data: [50, 40, 300, 320, 500, 350, 200],
-        maxBarThickness: 6,
-      }, ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-      interaction: {
-        intersect: false,
-        mode: "index",
-      },
-      scales: {
-        y: {
-          grid: {
-            drawBorder: false,
-            display: true,
-            drawOnChartArea: true,
-            drawTicks: false,
-            borderDash: [5, 5],
-            color: "rgba(255, 255, 255, .2)",
-          },
-          ticks: {
-            display: true,
-            color: "#f8f9fa",
-            padding: 10,
-            font: {
-              size: 14,
-              weight: 300,
-              family: "Roboto",
-              style: "normal",
-              lineHeight: 2,
-            },
-          },
-        },
-        x: {
-          grid: {
-            drawBorder: false,
-            display: false,
-            drawOnChartArea: false,
-            drawTicks: false,
-            borderDash: [5, 5],
-          },
-          ticks: {
-            display: true,
-            color: "#f8f9fa",
-            padding: 10,
-            font: {
-              size: 14,
-              weight: 300,
-              family: "Roboto",
-              style: "normal",
-              lineHeight: 2,
-            },
-          },
-        },
-      },
-    },
-  });
 
-  var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: mbrlabel,
+          datasets: mbpData.map((user, index) => ({
+            label: "Mean Blood Pressure",
+            tension: 0.4,
+            borderWidth: 0,
+            borderRadius: 4,
+            borderSkipped: false,
+            backgroundColor: "rgba(255, 255, 255, .8)",
+            data: Object.values(user),
+            maxBarThickness: 6,
+          }))
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          interaction: {
+            intersect: false,
+            mode: "index",
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: "rgba(255, 255, 255, .2)",
+              },
+              ticks: {
+                suggestedMin: 0,
+                suggestedMax: 500,
+                beginAtZero: true,
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+                color: "#fff",
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: "rgba(255, 255, 255, .2)",
+              },
+              ticks: {
+                display: true,
+                color: "#f8f9fa",
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+              },
+            },
+          },
+        },
+      });
 
-  new Chart(ctx3, {
-    type: "line",
-    data: {
-      labels: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
-      datasets: [{
-        label: "Weight",
-        tension: 0,
-        borderWidth: 0,
-        pointRadius: 5,
-        pointBackgroundColor: "rgba(255, 255, 255, .8)",
-        pointBorderColor: "transparent",
-        borderColor: "rgba(255, 255, 255, .8)",
-        borderWidth: 4,
-        backgroundColor: "transparent",
-        fill: true,
-        data: [10, 20, 30, 50, 40, 100, 120, 100, 80, 50, 60, 70],
-        maxBarThickness: 6,
-      }, ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false,
+      // Render BMI chart
+      var ctx2 = document.getElementById("chart-line").getContext("2d");
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: bmiData.map((user, index) => ({
+            label: "Your BMI",
+            tension: 0,
+            borderWidth: 0,
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(255, 255, 255, .8)",
+            pointBorderColor: "transparent",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderWidth: 4,
+            backgroundColor: "transparent",
+            fill: true,
+            data: Object.values(user),
+            maxBarThickness: 6,
+          }))
         },
-      },
-      interaction: {
-        intersect: false,
-        mode: "index",
-      },
-      scales: {
-        y: {
-          grid: {
-            drawBorder: false,
-            display: true,
-            drawOnChartArea: true,
-            drawTicks: false,
-            borderDash: [5, 5],
-            color: "rgba(255, 255, 255, .2)",
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
           },
-          ticks: {
-            display: true,
-            padding: 10,
-            color: "#f8f9fa",
-            font: {
-              size: 14,
-              weight: 300,
-              family: "Roboto",
-              style: "normal",
-              lineHeight: 2,
+          interaction: {
+            intersect: false,
+            mode: "index",
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: "rgba(255, 255, 255, .2)",
+              },
+              ticks: {
+                display: true,
+                color: "#f8f9fa",
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                display: true,
+                color: "#f8f9fa",
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+              },
             },
           },
         },
-        x: {
-          grid: {
-            drawBorder: false,
-            display: false,
-            drawOnChartArea: false,
-            drawTicks: false,
-            borderDash: [5, 5],
+      });
+
+      // Render BMR Chart
+      var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
+      new Chart(ctx3, {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: bmrData.map((user, index) => ({
+            label: "Your BMR",
+            tension: 0,
+            borderWidth: 0,
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(255, 255, 255, .8)",
+            pointBorderColor: "transparent",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderWidth: 4,
+            backgroundColor: "transparent",
+            fill: true,
+            data: Object.values(user),
+            maxBarThickness: 6,
+          }))
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
           },
-          ticks: {
-            display: true,
-            color: "#f8f9fa",
-            padding: 10,
-            font: {
-              size: 14,
-              weight: 300,
-              family: "Roboto",
-              style: "normal",
-              lineHeight: 2,
+          interaction: {
+            intersect: false,
+            mode: "index",
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: "rgba(255, 255, 255, .2)",
+              },
+              ticks: {
+                display: true,
+                padding: 10,
+                color: "#f8f9fa",
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                display: true,
+                color: "#f8f9fa",
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+              },
             },
           },
         },
-      },
-    },
-  });
+      });
+    });
 </script>
 <script>
   var win = navigator.platform.indexOf("Win") > -1;
