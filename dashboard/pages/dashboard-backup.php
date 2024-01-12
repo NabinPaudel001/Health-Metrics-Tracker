@@ -644,31 +644,36 @@
 <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="../assets/js/plugins/chartjs.min.js"></script>
 <script>
-  // Retrieve the JSON data from the previous PHP file
   fetch('display-info.php')
     .then(response => response.json())
     .then(data => {
-      // Extract BMI, BMR, and MBP data
-      const chartData = data.map(item => ({
-        RecordID: item.RecordID,
-        BMI: item.BMI,
-        BMR: item.BMR,
-        MeanBloodPressure: item.MeanBloodPressure
-      }));
+      // Extract BMI and BMR data
+      const bmiData = data.map(item => item.bmi_values);
+      const bmrData = data.map(item => item.bmr_values);
+      const mbpData = data.map(item => item.mbp_values);
 
-      // BMI Data
-      var bmictx = document.getElementById("chart-bars").getContext("2d");
-      new Chart(bmictx, {
+      // Labels for the charts
+      // const labels = Object.keys(bmiData[0]); // Assuming all users have the same weeks
+      const mbrlabel = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7'];
+      const labels = ['Week1', 'Week2', 'Week3', 'Week4', 'Week5'];
+
+      var ctx = document.getElementById("chart-bars").getContext("2d");
+
+
+      new Chart(ctx, {
         type: "bar",
         data: {
-          labels: chartData.map(item => 'Record ' + item.RecordID),
-          datasets: [{
-            label: 'BMI',
-            data: chartData.map(item => item.BMI),
-            backgroundColor: 'rgba(75, 192, 192, 0.8)', // Adjust the color as needed
-            borderWidth: 1
-          }]
-
+          labels: mbrlabel,
+          datasets: mbpData.map((user, index) => ({
+            label: "Mean Blood Pressure",
+            tension: 0.4,
+            borderWidth: 0,
+            borderRadius: 4,
+            borderSkipped: false,
+            backgroundColor: "rgba(255, 255, 255, .8)",
+            data: Object.values(user),
+            maxBarThickness: 6,
+          }))
         },
         options: {
           responsive: true,
@@ -733,23 +738,27 @@
         },
       });
 
-      // Render BMR chart
+      // Render BMI chart
       var ctx2 = document.getElementById("chart-line").getContext("2d");
       new Chart(ctx2, {
         type: "line",
         data: {
-          labels: chartData.map(function(item) {
-            return 'Record ' + item.RecordID;
-          }),
-          datasets: [{
-            label: 'BMR',
-            data: chartData.map(function(item) {
-              return item.BMR;
-            }),
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 2,
-            fill: false
-          }]
+          labels: labels,
+          datasets: bmiData.map((user, index) => ({
+            label: "Your BMI",
+            tension: 0,
+            borderWidth: 0,
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(255, 255, 255, .8)",
+            pointBorderColor: "transparent",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderWidth: 4,
+            backgroundColor: "transparent",
+            fill: true,
+            data: Object.values(user),
+            maxBarThickness: 6,
+          }))
         },
         options: {
           responsive: true,
@@ -811,23 +820,26 @@
         },
       });
 
-      // Render MBP Chart
+      // Render BMR Chart
       var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
       new Chart(ctx3, {
         type: "line",
         data: {
-          labels: chartData.map(function(item) {
-            return 'Record ' + item.RecordID;
-          }),
-          datasets: [{
-            label: 'Mean Blood Pressure',
-            data: chartData.map(function(item) {
-              return item.MeanBloodPressure;
-            }),
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 2,
-            fill: false
-          }]
+          labels: labels,
+          datasets: bmrData.map((user, index) => ({
+            label: "Your BMR",
+            tension: 0,
+            borderWidth: 0,
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(255, 255, 255, .8)",
+            pointBorderColor: "transparent",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderWidth: 4,
+            backgroundColor: "transparent",
+            fill: true,
+            data: Object.values(user),
+            maxBarThickness: 6,
+          }))
         },
         options: {
           responsive: true,

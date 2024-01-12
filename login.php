@@ -1,42 +1,3 @@
-<?php
-  include 'styles\components\navbar.php';
-?>
-<?php
-include('connect.php');
-session_start();
-if (isset($_POST['login'])) {
-
-  // NEW CODE FOR SECURITY
-  // For Santizing User inputs:
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-  // Preventing SQL injection
-  $sql = "SELECT * FROM login WHERE email=? AND password=?";
-  $stmt = mysqli_prepare($conn, $sql);
-  mysqli_stmt_bind_param($stmt, "ss", $email, $password);
-  mysqli_stmt_execute($stmt);
-
-  $result = mysqli_stmt_get_result($stmt);
-
-  // Fetch user data
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-  // Count the number of rows
-  $count = mysqli_num_rows($result);
-
-  if ($count == 1) {
-    // Redirect with sanitized and escaped data
-    $redirect_url = "welcome.php";
-    header("Location: " . $redirect_url);
-    exit();
-  } else {
-    header("Location: index.html");
-    exit();
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,13 +18,13 @@ if (isset($_POST['login'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans&family=Lato:ital,wght@1,300&family=Roboto+Serif:opsz@8..144&family=Ysabeau+SC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style_login.css">
-   <!-- Bootstrap -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- CSS here -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
   <link rel="stylesheet" href="assets/css/slicknav.css" />
   <link rel="stylesheet" href="assets/css/flaticon.css" />
@@ -74,8 +35,8 @@ if (isset($_POST['login'])) {
   <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
   <link rel="stylesheet" href="assets/css/themify-icons.css" />
   <link rel="stylesheet" href="assets/css/slick.css" />
-  <link rel="stylesheet" href="assets/css/nice-select.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/nice-select.css" /> -->
+  <link rel="stylesheet" href="style_login.css" />
 </head>
 
 <body>
@@ -112,14 +73,14 @@ if (isset($_POST['login'])) {
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1 ml-5">
-                    <input name="login" value="Login" type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 mr-5 ml-5 pt-3 pb-3" style="width: 150px; height: 50px;" type="button">
+                      <input name="login" value="Login" type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 mr-5 ml-5 pt-3 pb-3" style="width: 150px; height: 50px;" type="button">
 
                       <a class="text-muted mr-5" href="#!">Forgot password?</a>
                     </div>
 
                     <div class="d-flex align-items-center justify-content-center pb-4">
                       <p class="mb-0 me-2 text-nowrap">Don't have an account?</p>
-                      <button type="button" class="btn btn-outline-danger mx-2">Create new</button>
+                      <a href="register.php"><button type="button" class="btn btn-outline-danger mx-2">Create new</button></a>
                     </div>
 
                   </form>
@@ -150,6 +111,3 @@ if (isset($_POST['login'])) {
 </body>
 
 </html>
-<?php
-  include 'styles\components\footer.php';
-?>

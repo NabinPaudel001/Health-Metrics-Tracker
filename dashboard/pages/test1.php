@@ -30,26 +30,20 @@ if ($result->num_rows > 0) {
         $conn->query($updateQuery);
 
         // Store the data for the chart
-        // $data[] = array(
-        //     'RecordID' => $row["RecordID"],
-        //     'BMI' => $bmi,
-        //     'BMR' => $bmr,
-        //     'MeanBloodPressure' => $mbp
-        // );
-        $combined_data = array(
+        $data[] = array(
             'RecordID' => $row["RecordID"],
             'BMI' => $bmi,
             'BMR' => $bmr,
-            'MeanBloodPressure' => $mbp
+            'MeanBloodPressure' => $mbp,
+            // Add other fields as needed
         );
-        $data[] = $combined_data;
 
         // You can also perform any other processing or display logic here
 
         // Limit to the last 7 records
-        // if (++$count == 7) {
-        //     break;
-        // }
+        if (++$count == 7) {
+            break;
+        }
     }
 } else {
     echo "No health records found for the user.";

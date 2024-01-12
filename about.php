@@ -24,7 +24,7 @@
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">About</h1>
                                     <p data-animation="fadeInUp" data-delay=".6s">
-                                    Welcome to our innovative health companion app, your personalized guide to a vibrant life. Our cutting-edge algorithm tailors meal plans and wellness insights just for you, ensuring a seamless journey towards better health. With intuitive features and expert recommendations, discover a holistic approach to well-being at your fingertips.
+                                        Welcome to our innovative health companion app, your personalized guide to a vibrant life. Our cutting-edge algorithm tailors meal plans and wellness insights just for you, ensuring a seamless journey towards better health. With intuitive features and expert recommendations, discover a holistic approach to well-being at your fingertips.
                                     </p>
                                 </div>
                             </div>
@@ -36,8 +36,8 @@
     </div>
     <!-- Slider Area End -->
     <!--? Team Area Start-->
-    <h1 data-animation="fadeInUp" style="font-size: 60px; margin-right: 10px;0"class="ml-50" data-delay=".3s">
-    About Us</h1>
+    <h1 data-animation="fadeInUp" style="font-size: 60px; margin-right: 10px;" class="ml-50" data-delay=".3s">
+        About Us</h1>
     <section class="team-area mb-100 mt-40">
         <div class="container">
             <div class="row">
@@ -62,7 +62,7 @@
                         <div class="cat-cap">
                             <h5><a href="#">Sanjib Shah</a></h5>
                             <p>
-                               Full Stack Development
+                                Full Stack Development
                             </p>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                         <div class="cat-cap">
                             <h5><a href="#">Aman Sheikh</a></h5>
                             <p>
-                               Backend Development, Database Analyst
+                                Backend Development, Database Analyst
                             </p>
                         </div>
                     </div>
@@ -85,7 +85,6 @@
     </section>
     <!--? Team End-->
     <!-- Services End-->
-   
 </main>
 <!-- Scroll Up -->
 <div id="back-top" style="z-index: 3;">
