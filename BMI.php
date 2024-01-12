@@ -1,29 +1,11 @@
 <?php
 include 'connect.php'; // Include your database connection file
-
-// Ensure that the request is a POST request
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve height and weight values from the POST data
-    $height = $_POST['height'];
-    $weight = $_POST['weight'];
-    // $Bmi=$_POST['bmi'];
-    // Insert the data into the healthrecord table
-    $sql = "INSERT INTO healthrecord (height, weight) VALUES ('$height', '$weight')";
-
-    if ($conn->query($sql) === TRUE) {
-        // echo "Data stored successfully!";
-    } else {
-        // echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    // Close the database connection
-    $conn->close();
+session_start();
+if (!isset($_SESSION["Name"])) {
+    header("Location: ../../login.php");
+    exit();
 }
 ?>
-
-
-
-
 
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -97,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form id="bmiForm" method="POST" action="store_BMI.php"  onsubmit="submitForm(); return false;">
+                        <form id="bmiForm" method="POST" action="store_health.php" onsubmit="submitForm(); return false;">
                             <div class="form-group">
                                 <label for="height" class="weight_height">Height (cm):</label>
                                 <input type="number" name="height" class="form-control" style="height: 35px;" id="height" placeholder="Enter height">
@@ -106,7 +88,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <label for="weight" class="weight_height">Weight (kg):</label>
                                 <input type="number" name="weight" class="form-control" style="height: 35px;" id="weight" placeholder="Enter weight">
                             </div>
-                            <button type="submit" class=" btn-outline-success py-2 btn-block" >Calculate</button>
+                            <div class="form-group">
+                                <label for="systolic" name="systolic" class="input-label">Systolic Pressure:</label>
+                                <input type="number" class="form-control" style="height: 35px;" id="systolic" placeholder="Enter systolic pressure">
+                            </div>
+                            <div class="form-group">
+                                <label for="diastolic" class="input-label">Diastolic Pressure:</label>
+                                <input type="number" name="diastolic" class="form-control" style="height: 35px;" id="diastolic" placeholder="Enter diastolic pressure">
+                            </div>
+                            <button type="submit" class=" btn-outline-success py-2 btn-block">Calculate</button>
                             <!-- <input type="text" id="bmi" name="bmi" hidden  > -->
                         </form>
 
@@ -116,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
             <!-- <script> -->
-   
+
 
 
             <!-- Bootstrap JS and Popper.js -->
@@ -127,69 +117,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <script>
                 function submitForm() {
                     var height = document.getElementById('height').value;
-                var weight = document.getElementById('weight').value;
+                    var weight = document.getElementById('weight').value;
 
-                // Check if height and weight are provided
-                var bmi = (weight / ((height / 100) * (height / 100))).toFixed(2);
-                // document.getElementById('bmi').value=bmi;
-                if (height && weight) {
-                    var resultDiv = document.getElementById('result');
-                    resultDiv.innerHTML = '<h5>Your BMI: ' + bmi + '</h5>';
+                    // Check if height and weight are provided
+                    var bmi = (weight / ((height / 100) * (height / 100))).toFixed(2);
+                    // document.getElementById('bmi').value=bmi;
+                    if (height && weight) {
+                        var resultDiv = document.getElementById('result');
+                        resultDiv.innerHTML = '<h5>Your BMI: ' + bmi + '</h5>';
 
-                    // Add additional styling based on BMI category
-                    if (bmi < 18.5) {
-                        resultDiv.innerHTML += '<p class="text-danger">Underweight</p>';
-                        resultDiv.style.backgroundColor = '#f8d7da';
-                    } else if (bmi >= 18.5 && bmi < 24.9) {
-                        resultDiv.innerHTML += '<p class="text-success">Normal weight</p>';
-                        resultDiv.style.backgroundColor = '#d4edda';
-                    } else if (bmi >= 25 && bmi < 29.9) {
-                        resultDiv.innerHTML += '<p class="text-warning">Pre-obese</p>';
-                        resultDiv.style.backgroundColor = '#FFC0CB';
-                    } else if (bmi >= 30 && bmi < 34.9) {
-                        resultDiv.innerHTML += '<p class="text-warning">Obese-Class I</p>';
-                        resultDiv.style.backgroundColor = '#FF6961';
-                    } else if (bmi >= 35 && bmi < 39.9) {
-                        resultDiv.innerHTML += '<p class="text-warning">Obese-Class II</p>';
-                        resultDiv.style.backgroundColor = '#DC143C';
-                    } else if (bmi >= 40) {
-                        resultDiv.innerHTML += '<p class="text-warning">Obese-Class III</p>';
-                        resultDiv.style.backgroundColor = '#eb3345';
+                        // Add additional styling based on BMI category
+                        if (bmi < 18.5) {
+                            resultDiv.innerHTML += '<p class="text-danger">Underweight</p>';
+                            resultDiv.style.backgroundColor = '#f8d7da';
+                        } else if (bmi >= 18.5 && bmi < 24.9) {
+                            resultDiv.innerHTML += '<p class="text-success">Normal weight</p>';
+                            resultDiv.style.backgroundColor = '#d4edda';
+                        } else if (bmi >= 25 && bmi < 29.9) {
+                            resultDiv.innerHTML += '<p class="text-warning">Pre-obese</p>';
+                            resultDiv.style.backgroundColor = '#FFC0CB';
+                        } else if (bmi >= 30 && bmi < 34.9) {
+                            resultDiv.innerHTML += '<p class="text-warning">Obese-Class I</p>';
+                            resultDiv.style.backgroundColor = '#FF6961';
+                        } else if (bmi >= 35 && bmi < 39.9) {
+                            resultDiv.innerHTML += '<p class="text-warning">Obese-Class II</p>';
+                            resultDiv.style.backgroundColor = '#DC143C';
+                        } else if (bmi >= 40) {
+                            resultDiv.innerHTML += '<p class="text-warning">Obese-Class III</p>';
+                            resultDiv.style.backgroundColor = '#eb3345';
+                        }
+
+                        // Display the result
+                        resultDiv.style.display = 'block';
+                    } else {
+                        alert('Please enter both height and weight');
                     }
-
-                    // Display the result
-                    resultDiv.style.display = 'block';
-                } else {
-                    alert('Please enter both height and weight');
-                }
                     var height = document.getElementById('height').value;
                     var weight = document.getElementById('weight').value;
                     // var bmi=document.getElementById('bmi').value;
-                   
+
                     var xhr = new XMLHttpRequest();
 
-                 // Specify the type of request, the URL, and whether the request should be asynchronous
-                 xhr.open('POST', 'store_BMI.php', true);
+                    // Specify the type of request, the URL, and whether the request should be asynchronous
+                    xhr.open('POST', 'store_BMI.php', true);
 
                     // Set the request header
-                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-                                // Define the data to be sent to the server
-                    var data = 'height=' + height + '&weight=' + weight   ;
+                    // Define the data to be sent to the server
+                    var data = 'height=' + height + '&weight=' + weight;
 
-                                // Set the callback function to handle the response from the server
-                 xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Display the server response
-                // document.getElementById('result').innerHTML = xhr.responseText;
-            }
-         };
+                    // Set the callback function to handle the response from the server
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            // Display the server response
+                            // document.getElementById('result').innerHTML = xhr.responseText;
+                        }
+                    };
 
-                        // Send the data to the server
+                    // Send the data to the server
                     xhr.send(data);
                     // Get values from input fields
                 }
-               
             </script>
             <footer>
                 <div class="footer-wrappr section-bg3" data-background="assets/img/gallery/footer-bg.png">

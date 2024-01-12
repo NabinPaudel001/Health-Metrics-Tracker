@@ -1,5 +1,5 @@
 CREATE TABLE HealthRecord (
-    RecordID INT PRIMARY KEY,
+    RecordID INT AUTO_INCREMENT PRIMARY KEY,
     UserID INT,
     Height DECIMAL(5,2),
     Weight DECIMAL(5,2),
