@@ -37,7 +37,7 @@
   
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
   
-                  <form class="mx-1 mx-md-4">
+                  <form class="mx-1 mx-md-4" method="POST" action="process_form.php">
   
                     <div class="d-flex flex-row col-md-20  mt-3">
                       <i class="fas fa-user  fa-lg me-2 fa-fw" style="transform: translateY(12px);"></i>
@@ -58,7 +58,7 @@
                     <div class="d-flex flex-row col-md-20  mt-1">
                       <i class="fa-solid fa-phone fa-lg me-2 fa-fw" style="transform: translateY(12px);"></i>
                       <div class="form-group">
-                        <input type="number" name="number" required id="form3Example1" class="form-control w-100" placeholder=" " />
+                        <input type="text" name="phone" required id="form3Example1" class="form-control w-100" placeholder=" " />
                         <label class="form-label" for="form3Example1">Phone</label>
                       </div>
                     </div>
@@ -76,16 +76,16 @@
                       <i class="fa-regular fa-calendar-days fa-lg me-2 mx-2 fa-fw" style="transform: translateY(6px);"></i>
                       <div class="form-group">
                         <label class="mx-3" >DOB:</label>
-                        <!-- <div class="input-group"> -->
+                      
                           <input type="date" name="dob" required  />
-                      <!-- </div>  -->
+                      
                       </div>
                     </div>
                   
                     <div class="d-flex flex-row col-md-20  mt-1">
                       <i class="fa-solid fa-location-dot  fa-lg me-2 fa-fw" style="transform: translateY(12px);"></i>
                       <div class="form-group">
-                        <input type="number" name="number" required id="form3Example1" class="form-control w-100" placeholder=" " />
+                        <input type="text" name="address" required id="form3Example1" class="form-control w-100" placeholder=" " />
                         <label class="form-label" for="form3Example1">Location</label>
                       </div>
                     </div>
@@ -93,7 +93,7 @@
                     <div class="d-flex flex-row col-md-20  mt-1">
                       <i class="fas fa-lock  fa-lg me-2 fa-fw" style="transform: translateY(12px);"></i>
                       <div class="form-group">
-                        <input type="number" name="number" required id="form3Example1" class="form-control w-100" placeholder=" " />
+                        <input type="password" name="password" required id="form3Example1" class="form-control w-100" placeholder=" " />
                         <label class="form-label" for="form3Example1">Password</label>
                       </div>
                     </div>
@@ -101,13 +101,13 @@
                     <div class="d-flex flex-row col-md-20  mt-1">
                       <i class="fa-solid fa-check-double  fa-lg me-2 fa-fw" style="transform: translateY(12px);"></i>
                       <div class="form-group">
-                        <input type="number" name="number" required id="form3Example1" class="form-control w-100" placeholder=" " />
+                        <input type="password" name="Cpassword" required id="form3Example1" class="form-control w-100" placeholder=" " />
                         <label class="form-label" for="form3Example1">Confirm Password</label>
                       </div>
                     </div>
   
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" class="btn btn-primary btn-lg">Signup</button>
+                      <button type="submit" class="btn btn-primary btn-lg">Signup</button>
                     </div>
   
                   </form>
