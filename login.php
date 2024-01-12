@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
 
   if ($count == 1) {
     // Redirect with sanitized and escaped data
-    $redirect_url = "welcome.php";
+    $redirect_url = "welcomelogin.php";
     header("Location: " . $redirect_url);
     exit();
   } else {
@@ -32,6 +32,36 @@ if (isset($_POST['login'])) {
     exit();
   }
 }
+?>
+
+<?php
+// include('connect.php');
+
+// session_start(); // Start the session
+
+// if (isset($_POST['login'])) {
+//   $Email = $_POST['email'];
+//   $Password = $_POST['password'];
+
+//   $sql = "SELECT * FROM login WHERE email='$Email' AND password='$Password'";
+//   $result = $conn->query($sql);
+
+//   if ($result->num_rows == 1) {
+//     // Fetch the user data
+//     $row = $result->fetch_assoc();
+
+//     // Set a session variable to store user login status
+//     $_SESSION['user_id'] = $row['user_id'];
+
+//     echo "Login successful!";
+//     header("location: welcome.php");
+//     exit();
+//     // Add additional logic (e.g., session handling) here
+//   } else {
+//     echo "Invalid username or password";
+//     exit();
+//   }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +83,7 @@ if (isset($_POST['login'])) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans&family=Lato:ital,wght@1,300&family=Roboto+Serif:opsz@8..144&family=Ysabeau+SC&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style_login.css">
+  <link rel="stylesheet" href="/styles/style_login.css">
 </head>
 
 <body>

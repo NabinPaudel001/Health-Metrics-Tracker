@@ -1,108 +1,38 @@
 <?php
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-// use PHPMailer\PHPMailer\SMTP;
-
-include 'connect.php';
-
+// Ensure that form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form data
-    $full_name = $_POST["fname"];
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-    $gender = isset($_POST["gender"]) ? $_POST["gender"] : null;
-    $dob = $_POST["dob"];
-    $address = $_POST["address"];
-    $password = $_POST["password"];
-    $confirm_password = $_POST["Cpassword"];
+    require_once "connect.php";
 
-    // Check if passwords match
-    if ($password !== $confirm_password) {
-        // Passwords do not match, handle the error (you may redirect or display an error message)
-        echo "Passwords do not match.";
-        exit();
+    // Create a database connection
+    $conn = new mysqli('localhost', 'root', '', 'health_metric');
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    // Hash the password for security
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+    $dob = mysqli_real_escape_string($conn, $_POST['dob']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password
+    $Cpassword = password_hash($_POST['Cpassword'], PASSWORD_DEFAULT);
 
-    // Function to generate a random 6-digit code
-    function generateVerificationCode()
-    {
-        return rand(100000, 999999);
-    }
-
-    // Function to send an email with the verification code
-    function sendVerificationEmail($email, $code)
-    {
-        // require 'vendor/autoload.php';
-
-        require 'PHPMailer/PHPMailer.php';
-        require 'PHPMailer/Exception.php';
-
-        require 'PHPMailer/SMTP.php';
-
-        $mail = new PHPMailer(true);
-
-        try {
-            // Server settings
-            $mail->SMTPDebug = 0;
-            $mail->isSMTP();
-            $mail->Host = 'outlook.office365.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'paudelnabin41@gmail.com'; // Your Gmail email address
-            $mail->Password = 'Meuser23'; // Your Gmail password
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 993;
-
-            // Recipients
-            $mail->setFrom('paudelnabin41@gmail.com', 'Sanjib Shah');
-            $mail->addAddress($email);
-
-            // Content
-            $mail->isHTML(true);
-            $mail->Subject = 'Email Verification Code';
-            $mail->Body = 'Your verification code is: ' . $code;
-
-            $mail->send();
-            echo "message sent";
-            return true;
-        } catch (Exception $e) {
-            echo("Exception Mailer "+ $e);
-            return false;
-        }
-    }
-
-    // Generate a 6-digit verification code
-    $verificationCode = generateVerificationCode();
-
-    // Send the verification code via email
-    if (sendVerificationEmail($email, $verificationCode)) {
-        // Store the verification code and email in a database or session
-        // For example, you can use a session to store the data temporarily
-        session_start();
-        $_SESSION["verification_code"] = $verificationCode;
-        $_SESSION["email"] = $email;
-
-        // Redirect to the verification page
-        header("Location: verification.php");
-        exit();
+    // Check Password
+    if ($_POST['password'] == $_POST['Cpassword']) {
+        // Use prepared statement to prevent SQL injection
+        $stmt = $conn->prepare("INSERT INTO users_data (fname, email, phone, gender, dob, address, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssss", $fname, $email, $phone, $gender, $dob, $address, $password);
     } else {
-        echo "Failed to send verification email.";
-        exit(); // Add exit() to stop further execution if email sending fails
+        die();
     }
+    header("location:index.php");
 
-    // Prepare and execute the SQL query to insert data into the table
-    $stmt = $conn->prepare("INSERT INTO user_data (full_name, email, phone, gender, dob, address, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $full_name, $email, $phone, $gender, $dob, $address, $hashed_password);
-    $stmt->execute();
-    $stmt->close();
-
+    // if ($conn->query($sql) === TRUE) {
+    //     echo "Registration successful!";
+    // } else {
+    //     echo "Error: " . $sql . "<br>" . $conn->error;
+    // }
+    // Close the database connection
     $conn->close();
-
-    // You can redirect the user to a thank-you page or do other processing here
-    header("Location: index.html");
-    exit();
 }
-?>
