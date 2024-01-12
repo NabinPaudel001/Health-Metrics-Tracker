@@ -22,9 +22,8 @@
                         <div class="col-xl-7 col-lg-8 col-md-10 ">
                             <div class="hero-wrapper">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInUp" data-delay=".3s">contact</h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s">Almost before we knew it, we<br> had
-                                        left the ground</p>
+                                    <h1 data-animation="fadeInUp" data-delay=".3s">Contact Us</h1>
+                                    <p data-animation="fadeInUp" data-delay=".6s">Get in touch with our team.
                                 </div>
                             </div>
                         </div>
@@ -539,22 +538,22 @@
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-home"></i></span>
                         <div class="media-body">
-                            <h3>Buttonwood, California.</h3>
-                            <p>Rosemead, CA 91770</p>
+                            <h3>Kathmandu, Bagmati.</h3>
+                            <p>Kathmandu, 44600</p>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                         <div class="media-body">
-                            <h3>+1 253 565 2365</h3>
-                            <p>Mon to Fri 9am to 6pm</p>
+                            <h3>+977 01-5652365</h3>
+                            <p>Sun to Fri 9am to 6pm</p>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">
-                            <h3>support@colorlib.com</h3>
-                            <p>Send us your query anytime!</p>
+                            <h3>healthpro@health.com</h3>
+                            <p>Send your query anytime!</p>
                         </div>
                     </div>
                 </div>
@@ -562,42 +561,13 @@
         </div>
     </section>
     <!-- Contact Area End -->
-    <!--? About Law Start-->
-    <section class="about-low-area mt-60">
-        <div class="container">
-            <div class="about-cap-wrapper">
-                <div class="row">
-                    <div class="col-xl-5  col-lg-6 col-md-10 offset-xl-1">
-                        <div class="about-caption mb-50">
-                            <!-- Section Tittle -->
-                            <div class="section-tittle mb-35">
-                                <h2>100% satisfaction guaranteed.</h2>
-                            </div>
-                            <p>Almost before we knew it, we had left the ground</p>
-                            <a href="about.html" class="border-btn">Make an Appointment</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <!-- about-img -->
-                        <div class="about-img">
-                            <div class="about-font-img">
-                                <img src="assets/img/gallery/about2.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- About Law End-->
 </main>
 
 
 <!-- Scroll Up -->
-<div id="back-top">
+<div id="back-top" style="z-index: 3;">
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
-
 <!-- JS here -->
 
 <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>

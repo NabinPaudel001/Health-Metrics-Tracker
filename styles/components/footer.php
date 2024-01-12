@@ -1,15 +1,15 @@
 <footer>
-    <div class="footer-wrappr section-bg3" data-background-image="assets\img\gallery\footer-bg.png">
-        <div class="footer-area footer-padding">
+    <div class="footer-wrapper section-bg3 " style="background-image:url(&quot;assets/img/gallery/footer-bg.png&quot;);transform: translateY(-20px);height:400px">
+        <div class="footer-area footer-padding" >
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12">
-                        <div class="single-footer-caption mb-50">
+                        <div class="single-footer-caption mb-5">
                             <!-- logo -->
-                            <div class="footer-logo mb-25">
-                                <a href="../index.php"><img src="assets/img/logo/logo2_footer.png" alt="" /></a>
+                            <div class="footer-logo">
+                                <a href="../index.php"><img src="assets/img/logo/logo2_footer.png" style="height: 70px;" alt="" /></a>
                             </div>
-                            <d iv class="header-area">
+                            <div class="header-area">
                                 <div class="main-header main-header2">
                                     <div class="menu-main d-flex align-items-center justify-content-start">
                                         <!-- Main-menu -->
@@ -26,9 +26,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </d>
+                            </div>
                             <!-- social -->
-                            <div class="footer-social mt-50">
+                            <div class="footer-social ">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-pinterest-p"></i></a>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <div class="single-footer-caption">
-                            <div class="footer-tittle mb-50">
+                            <div class="footer-tittle ">
                                 <h4>Subscribe newsletter</h4>
                             </div>
                             <!-- Form -->
@@ -50,7 +50,7 @@
                                                 Subscribe
                                             </button>
                                         </div>
-                                        <div class="mt-10 info"></div>
+                                        <div class=" info"></div>
                                     </form>
                                 </div>
                             </div>
@@ -72,10 +72,9 @@
             <div class="container">
                 <div class="footer-border">
                     <div class="row">
-                        <div class="col-xl-10">
+                        <div class="col-xl-5">
                             <div class="footer-copy-right">
                                 <p>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
@@ -83,7 +82,6 @@
                                     All rights reserved |
                                     <i class="fa-solid fa-hat-wizard"></i><a href="#" target="_blank">
                                         HackWizards</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
                             </div>
                         </div>

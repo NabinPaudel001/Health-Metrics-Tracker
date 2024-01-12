@@ -16,13 +16,12 @@
                                 </div>
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">
-                                        Health is wealth keep it healthy
+                                    Nurture Health, Unlock Wealth !
                                     </h1>
                                     <p data-animation="fadeInUp" data-delay=".6s">
-                                        Almost before we knew it, we<br />
-                                        had left the ground
+                                    "Effortless health tracking <br />
+                                    for your well-being."
                                     </p>
-                                    <a href="index.php?page=services" class="btn" data-animation="fadeInLeft" data-delay=".3s">Take a Service</a>
                                 </div>
                             </div>
                         </div>
@@ -41,16 +40,16 @@
                                         <i class="fas fa-play"></i>
                                     </a>
                                 </div>
-                                <div class="hero__caption">
+                                <p class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">
-                                        Health is wealth keep it healthy
+                                    "Nurture Health, Unlock Wealth !"
                                     </h1>
                                     <p data-animation="fadeInUp" data-delay=".6s">
-                                        Almost before we knew it, we<br />
-                                        had left the ground
+                                    "Effortless health tracking <br />
+                                    for your well-being."
                                     </p>
-                                    <a href="index.php?page=services" class="btn" data-animation="fadeInLeft" data-delay=".3s">Take a
-                                        Service</a>
+
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -74,19 +73,14 @@
                     <div class="about-caption">
                         <!-- Section Tittle -->
                         <div class="section-tittle mb-35">
-                            <h2>Create a healthy life you love!</h2>
+                            <h2>Guiding to a vibrant and healthy life.</h2>
                         </div>
-                        <p class="pera-top mb-40">
-                            Almost before we knew it, we had left the ground
-                        </p>
                         <p class="pera-bottom mb-30">
-                            Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                            dignissim dolor, a pretium mi sem ut ipsum. Fusce fermentum.
-                            Pellentesque libero tortor, tincidunt et.
+                        Optimize your well-being with Health Metric Pro – the best algorithm for precise tracking of BMI, BMR, mean blood pressure, and tailored calorie recommendations
                         </p>
                         <div class="icon-about">
                             <img src="assets/img/icon/about1.svg" alt="" class="mr-20" />
-                            <img src="assets/img/icon/about2.svg" alt="" />
+                        
                         </div>
                     </div>
                 </div>
@@ -101,10 +95,7 @@
                     <div class="col-xl-7 col-lg-9 col-md-8">
                         <div class="wantToWork-caption wantToWork-caption2">
                             <h2>Happy mind <br />healthy life</h2>
-                            <p>
-                                Almost before we knew it, we<br />
-                                had left the ground
-                            </p>
+                          
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
@@ -180,10 +171,7 @@
                                 <div class="testimonial-caption">
                                     <img src="assets/img/icon/quotes-sign.png" alt="" class="quotes-sign" />
                                     <p>
-                                        "The automated process starts as soon as your clothe go
-                                        into the machine. This site outcome is gleaming clothe.
-                                        Placeholder text commonly used. In publishing and
-                                        graphic.
+                                    "Health Metric Pro transformed my health journey! The precise tracking and personalized recommendations are unmatched. A must-have for a healthier life!"
                                     </p>
                                 </div>
                                 <!-- founder -->
@@ -192,8 +180,8 @@
                                         <img src="assets/img/icon/testimonial.png" alt="" />
                                     </div>
                                     <div class="founder-text">
-                                        <span>Robart Brown</span>
-                                        <p>Creative designer at Colorlib</p>
+                                        <span>Shyam Bidari</span>
+                                        <p>CEO. MT Constructions</p>
                                     </div>
                                 </div>
                             </div>
@@ -202,10 +190,7 @@
                                 <div class="testimonial-caption">
                                     <img src="assets/img/icon/quotes-sign.png" alt="" class="quotes-sign" />
                                     <p>
-                                        "The automated process starts as soon as your clothe go
-                                        into the machine. This site outcome is gleaming clothe.
-                                        Placeholder text commonly used. In publishing and
-                                        graphic.
+                                    "Thanks to Health Metric Pro, I've achieved my health goals effortlessly. The app's precision and personalized insights make it the best in the game. Highly recommended!"
                                     </p>
                                 </div>
                                 <!-- founder -->
@@ -214,8 +199,8 @@
                                         <img src="assets/img/icon/testimonial.png" alt="" />
                                     </div>
                                     <div class="founder-text">
-                                        <span>Robart Brown</span>
-                                        <p>Creative designer at Colorlib</p>
+                                        <span>Hari Maya Shrestha</span>
+                                        <p>Founder of LocalBite</p>
                                     </div>
                                 </div>
                             </div>
@@ -227,24 +212,14 @@
         </div>
     </section>
     <!--? Testimonial Area End -->
-    <!--? video_start -->
-    <div class="container">
-        <div class="video-area section-bg2 d-flex align-items-center" data-background="assets/img/gallery/video-bg.png">
-            <div class="video-wrap position-relative">
-                <div class="video-icon">
-                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- video_end -->
+   
     <!--? Blog Area Start -->
-    <section class="home-blog-area section-padding30">
+    <section class="home-blog-area section-padding">
         <div class="container">
             <!-- Section Tittle -->
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-9 col-sm-10">
-                    <div class="section-tittle text-center mb-100">
+                    <div class="section-tittle text-center mb-50">
                         <h2>Latest Blog</h2>
                     </div>
                 </div>
@@ -261,8 +236,7 @@
                                     <a href="blog_details.html">Your daily meal plan</a>
                                 </h3>
                                 <p>
-                                    Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                    dignissim dolor, a pretium mi sem ut ipsum.
+                                Experience optimal nutrition effortlessly with our app's daily meal plans. Tailored to your health metrics and preferences, each meal is a delicious step towards your well-being. Simplify your nutrition journey with personalized, hassle-free dining.
                                 </p>
                             </div>
                         </div>
@@ -276,11 +250,10 @@
                             </div>
                             <div class="blog-cap">
                                 <h3>
-                                    <a href="blog_details.html">Food is a great source of medicine</a>
+                                    <a href="blog_details.html">Food as source of medicine</a>
                                 </h3>
                                 <p>
-                                    Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                    dignissim dolor, a pretium mi sem ut ipsum.
+                                Unlock the power of food as medicine. Our app guides you to nourish your body with personalized, wholesome meals, recognizing the profound impact of nutrition on your well-being. Embrace a healthier you through the goodness of food
                                 </p>
                             </div>
                         </div>
@@ -295,8 +268,7 @@
                             <div class="blog-cap">
                                 <h3><a href="blog_details.html">Everyday diet plan</a></h3>
                                 <p>
-                                    Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                    dignissim dolor, a pretium mi sem ut ipsum.
+                                Revitalize your routine with our everyday diet plan. Tailored to your unique needs, it's a roadmap to balanced nutrition, promoting health and vitality. Elevate your well-being one meal at a time.
                                 </p>
                             </div>
                         </div>
@@ -306,38 +278,11 @@
         </div>
     </section>
     <!-- Blog Area End -->
-    <!--? About Law Start-->
-    <section class="about-low-area mt-30">
-        <div class="container">
-            <div class="about-cap-wrapper">
-                <div class="row">
-                    <div class="col-xl-5 col-lg-6 col-md-10 offset-xl-1">
-                        <div class="about-caption mb-50">
-                            <!-- Section Tittle -->
-                            <div class="section-tittle mb-35">
-                                <h2>100% satisfaction guaranteed.</h2>
-                            </div>
-                            <p>Almost before we knew it, we had left the ground</p>
-                            <a href="about.html" class="border-btn">Make an Appointment</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <!-- about-img -->
-                        <div class="about-img">
-                            <div class="about-font-img">
-                                <img src="assets/img/gallery/about2.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- About Law End-->
+   
 </main>
 
 <!-- Scroll Up -->
-<div id="back-top">
+<div id="back-top" style="z-index: 3;">
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
 

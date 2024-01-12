@@ -162,42 +162,12 @@
         </div>
     </section>
     <!--? Testimonial Area End -->
-
-    <!--? About Law Start-->
-    <section class="about-low-area mt-80">
-        <div class="container">
-            <div class="about-cap-wrapper">
-                <div class="row">
-                    <div class="col-xl-5  col-lg-6 col-md-10 offset-xl-1">
-                        <div class="about-caption mb-50">
-                            <!-- Section Tittle -->
-                            <div class="section-tittle mb-35">
-                                <h2>100% satisfaction guaranteed.</h2>
-                            </div>
-                            <p>Almost before we knew it, we had left the ground</p>
-                            <a href="about.html" class="border-btn">Make an Appointment</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <!-- about-img -->
-                        <div class="about-img">
-                            <div class="about-font-img">
-                                <img src="assets/img/gallery/about2.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- About Law End-->
 </main>
 
 <!-- Scroll Up -->
-<div id="back-top">
+<div id="back-top" style="z-index: 3;">
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
-
 <!-- JS here -->
 
 <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
