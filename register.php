@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Your Bootstrap Page</title>
+  <title>Registration Page</title>
   <!-- <link rel="stylesheet" href="style.css"> -->
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -123,11 +123,16 @@
                   </form>
 
                 </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
-
+                <div class="col-md-5 col-lg-1 col-xl-7 align-items-center  order-2 order-lg-2 pt-5" style="background: linear-gradient(90deg,#bafca6f0 3%, #9aeb8a  41%, #8bf56a  100%);">
+                  <a href="index.php">
+                  <img src="assets\img\logo\logo.png" class="img-fluid" alt="Sample image" style="height: 140px;width:570px"> <br>
+                   <!-- <img src="HEART.png" class="img-fluid justify-content-center" alt="Sample image" style=" height:200px;width:200px;"> -->
+                   </a>
+                   <p class="large mt-5">
+                  Welcome to our innovative health companion app, your personalized guide to a vibrant life ,ensuring a seamless journey towards better health at your fingertips.
+                  </p>
                 </div>
+
               </div>
             </div>
           </div>

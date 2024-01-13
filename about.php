@@ -24,7 +24,7 @@
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">About</h1>
                                     <p data-animation="fadeInUp" data-delay=".6s">
-                                        Welcome to our innovative health companion app, your personalized guide to a vibrant life. Our cutting-edge algorithm tailors meal plans and wellness insights just for you, ensuring a seamless journey towards better health. With intuitive features and expert recommendations, discover a holistic approach to well-being at your fingertips.
+                                        Welcome to our innovative health companion app, your personalized guide to a vibrant life ,ensuring a seamless journey towards better health at your fingertips.
                                     </p>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="single-cat text-center mb-30">
                         <div class="cat-icon">
-                            <img src="assets/img/gallery/team1.png" alt="" />
+                        <img src="nabin.png" style="height: 291px;" alt="" />
                         </div>
                         <div class="cat-cap">
                             <h5><a href="#">Nabin Paudel</a></h5>
@@ -57,7 +57,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="single-cat text-center mb-30">
                         <div class="cat-icon">
-                            <img src="assets/img/gallery/team2.png" alt="" />
+                        <img src="sanjib.png" style="height: 291px;" alt="" />
                         </div>
                         <div class="cat-cap">
                             <h5><a href="#">Sanjib Shah</a></h5>
@@ -70,7 +70,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="single-cat text-center mb-30">
                         <div class="cat-icon">
-                            <img src="assets/img/gallery/team3.png" alt="" />
+                            <img src="aman2.png" style="height: 291px;" alt="" />
                         </div>
                         <div class="cat-cap">
                             <h5><a href="#">Aman Sheikh</a></h5>
