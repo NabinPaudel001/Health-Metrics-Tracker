@@ -1,6 +1,10 @@
 <?php
-include 'connect.php';
+include 'connect.php'; // Include your database connection file
 session_start();
+if (!isset($_SESSION["Name"])) {
+    header("Location: ../../login.php");
+    exit();
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">

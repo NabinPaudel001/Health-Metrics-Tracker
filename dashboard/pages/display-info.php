@@ -1,12 +1,13 @@
 <?php
 // Connect to your MySQL database
 include '../../connect.php';
+session_start();
 
 // Replace $userID with the actual UserID of the user you want to retrieve records for
-$userID = 1; // replace with the actual UserID
+$userID = $_SESSION['user_id'];
 
 // Query to retrieve health records for a specific user
-$sql = "SELECT * FROM HealthRecord WHERE UserID = $userID ORDER BY RecordID DESC";
+$sql = "SELECT * FROM healthrecord WHERE UserID = $userID ORDER BY RecordID ASC";
 
 $result = $conn->query($sql);
 
@@ -25,8 +26,16 @@ if ($result->num_rows > 0) {
 
         $mbp = ($row["SystolicPressure"] + (2 * $row["DiastolicPressure"])) / 3;
 
+        $_SESSION['systolic'] = $row["SystolicPressure"];
+        $_SESSION['diastolic'] = $row["DiastolicPressure"];
+        $_SESSION['height'] = $row["Height"];
+        $_SESSION['weight'] = $row["Weight"];
+        $_SESSION['bmi'] = $bmi;
+        $_SESSION['bmr'] = $bmr;
+        $_SESSION['mbp'] = $mbp;
+
         // Update the health record with calculated values
-        $updateQuery = "UPDATE HealthRecord SET BMI = $bmi, BMR = $bmr, MeanBloodPressure = $mbp WHERE RecordID = " . $row["RecordID"];
+        $updateQuery = "UPDATE healthrecord SET BMI = $bmi, BMR = $bmr, MeanBloodPressure = $mbp WHERE RecordID = " . $row["RecordID"];
         $conn->query($updateQuery);
 
         // Store the data for the chart
@@ -47,9 +56,9 @@ if ($result->num_rows > 0) {
         // You can also perform any other processing or display logic here
 
         // Limit to the last 7 records
-        // if (++$count == 7) {
-        //     break;
-        // }
+        if (++$count == 7) {
+            break;
+        }
     }
 } else {
     echo "No health records found for the user.";

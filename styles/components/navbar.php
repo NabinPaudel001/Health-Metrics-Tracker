@@ -30,16 +30,16 @@ if (isset($_SESSION['Name'])) {
                                         <li>
                                             <a href="index.php?page=services">Service</a>
                                             <ul class="submenu">
-                                                <li><a href="BMI.php">BMI Calculator</a></li>
-                                                <li>
+                                                <li><a href="CalculateHealth.php">Calculate your Health</a></li>
+                                                <!-- <li>
                                                     <a href="BMR.php">BMR Calculator</a>
-                                                </li>
+                                                </li> -->
                                                 <!-- <li>
                                                     <a href="elements.html">Pregnancy Tracker</a>
                                                 </li> -->
-                                                <li>
+                                                <!-- <li>
                                                     <a href="pressure.php">Mean BP Calculator</a>
-                                                </li>
+                                                </li> -->
                                                 <!-- <li>
                                                     <a href="elements.html">Calories Recommender</a>
                                                 </li> -->

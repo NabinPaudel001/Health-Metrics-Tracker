@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+session_start();
 // Ensure that form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -13,12 +14,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Cpassword = password_hash($_POST['Cpassword'], PASSWORD_DEFAULT); // Hash the confirm password
 
 
+    // Convert the DOB string to a DateTime object
+    $birthDate = new DateTime($dob);
 
-   
+    // Get the current date as a DateTime object
+    $today = new DateTime();
+
+    // Calculate the difference between the current date and the DOB
+    $age = $today->diff($birthDate)->y;
+
+    // Age and Gender goes as Session Variable
+    $_SESSION['age'] = $age;
+    $_SESSION['gender'] = $gender;
 
     // Check Password
     if ($_POST['password'] == $_POST['Cpassword']) {
-        
+
         $sql = "INSERT INTO user (Name, Email, Phone, Gender, DateOfBirth, Address, Password) VALUES ('$fname', '$email', '$phone', '$gender', '$dob', '$address', '$password')";
         if ($conn->query($sql) === TRUE) {
             echo "Registration successful!";

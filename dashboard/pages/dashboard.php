@@ -1,3 +1,19 @@
+<?php
+$flag = 0;
+$userID = $_SESSION['user_id'];
+$sql = "SELECT * FROM healthrecord WHERE UserID = $userID";
+$result = mysqli_query($conn, $sql);
+if ($result && mysqli_num_rows($result) > 0) {
+  $flag = 1;
+  $row = mysqli_fetch_assoc($result);
+  // $bmi = $_SESSION['bmi'];
+  // $bmr = $_SESSION['bmr'];
+  // $mbp = $_SESSION['mbp'];
+  // $weight = $_SESSION['weight'];
+} else {
+  $flag = 0;
+}
+?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
   <?php
   include 'mainnav.php';
@@ -12,7 +28,15 @@
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Your BMI</p>
-              <h4 class="mb-0">XXXX</h4>
+              <h4 class="mb-0">
+                <?php
+                if ($flag == 0 || $row['BMI'] == NULL) {
+                  echo 'XXXX';
+                } else {
+                  echo $row['BMI'];
+                }
+                ?>
+              </h4>
             </div>
           </div>
           <hr class="dark horizontal my-0" />
@@ -31,7 +55,15 @@
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Your BMR</p>
-              <h4 class="mb-0">XXXX</h4>
+              <h4 class="mb-0">
+                <?php
+                if ($flag == 0 || $row['BMR'] == NULL) {
+                  echo 'XXXX';
+                } else {
+                  echo $row['BMR'];
+                }
+                ?>
+              </h4>
             </div>
           </div>
           <hr class="dark horizontal my-0" />
@@ -50,7 +82,15 @@
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Mean Blood pressure</p>
-              <h4 class="mb-0">XXXX</h4>
+              <h4 class="mb-0">
+                <?php
+                if ($flag == 0 || $row['MeanBloodPressure'] == NULL) {
+                  echo 'XXXX';
+                } else {
+                  echo $row['MeanBloodPressure'];
+                }
+                ?>
+              </h4>
             </div>
           </div>
           <hr class="dark horizontal my-0" />
@@ -70,7 +110,15 @@
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Weight</p>
-              <h4 class="mb-0">XXXXXX</h4>
+              <h4 class="mb-0">
+                <?php
+                if ($flag == 0 || $row['Weight'] == NULL) {
+                  echo 'XXXX';
+                } else {
+                  echo $row['Weight'];
+                }
+                ?>
+              </h4>
             </div>
           </div>
           <hr class="dark horizontal my-0" />
@@ -94,8 +142,8 @@
             </div>
           </div>
           <div class="card-body">
-            <h6 class="mb-0">Your MBP</h6>
-            <p class="text-sm">Mean Blood Pressure over a week</p>
+            <h6 class="mb-0">Your BMI</h6>
+            <p class="text-sm">Changes in Body Mass Index (BMI)</p>
             <hr class="dark horizontal" />
             <div class="d-flex">
               <i class="material-icons text-sm my-auto me-1">schedule</i>
@@ -114,10 +162,10 @@
             </div>
           </div>
           <div class="card-body">
-            <h6 class="mb-0">Your BMI</h6>
+            <h6 class="mb-0">Your BMR</h6>
             <p class="text-sm">
               (<span class="font-weight-bolder">+XXXX</span>)
-              Or, Changes in Body Mass Index (BMI) over 5 weeks
+              Changes in Basal Metabolic Rate (BMR)
             </p>
             <hr class="dark horizontal" />
             <div class="d-flex">
@@ -137,8 +185,8 @@
             </div>
           </div>
           <div class="card-body">
-            <h6 class="mb-0">Your BMR</h6>
-            <p class="text-sm">Changes in Basal Metabolic Rate (BMR) over 5 weeks</p>
+            <h6 class="mb-0">Your MBP</h6>
+            <p class="text-sm">Changes in Mean Blood pressure (BMR)</p>
             <hr class="dark horizontal" />
             <div class="d-flex">
               <i class="material-icons text-sm my-auto me-1">schedule</i>

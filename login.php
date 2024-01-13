@@ -18,9 +18,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->fetch();
   $stmt->close();
 
+  $sql = "SELECT * FROM healthrecord WHERE UserID = $userID ORDER BY RecordID ASC";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      $_SESSION['systolic'] = $row["SystolicPressure"];
+      $_SESSION['diastolic'] = $row["DiastolicPressure"];
+      $_SESSION['height'] = $row["Height"];
+      $_SESSION['weight'] = $row["Weight"];
+      $_SESSION['bmi'] = $bmi;
+      $_SESSION['bmr'] = $bmr;
+      $_SESSION['mbp'] = $mbp;
+    }
+  }
+
   // Verify the entered password with the hashed password from the database
   if (password_verify($password, $hashed_password)) {
-    $_SESSION['UserID'] = $userId;
+    $_SESSION['user_id'] = $userID;
     $_SESSION['Name'] = $name;
     $_SESSION['Email'] = $email;
     // Additional actions after successful login can be added here
@@ -29,16 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     echo "Invalid email or password.";
   }
-
   // Close the database connection
   $conn->close();
 }
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

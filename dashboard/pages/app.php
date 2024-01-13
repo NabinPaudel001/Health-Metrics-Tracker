@@ -1,6 +1,11 @@
 <?php
 include '../../connect.php';
-include 'page-auth.php'
+include 'page-auth.php';    
+$userID = $_SESSION['user_id'];
+$sql = "SELECT * FROM healthrecord WHERE UserID = $userID";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+// session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
