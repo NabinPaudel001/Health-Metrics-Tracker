@@ -1,15 +1,21 @@
 <?php
 $flag = 0;
 $userID = $_SESSION['user_id'];
-$sql = "SELECT * FROM healthrecord WHERE UserID = $userID";
+$sql = "SELECT * FROM healthrecord WHERE UserID = $userID ORDER BY RecordID DESC";
 $result = mysqli_query($conn, $sql);
 if ($result && mysqli_num_rows($result) > 0) {
   $flag = 1;
   $row = mysqli_fetch_assoc($result);
-  // $bmi = $_SESSION['bmi'];
-  // $bmr = $_SESSION['bmr'];
-  // $mbp = $_SESSION['mbp'];
-  // $weight = $_SESSION['weight'];
+
+  $bmi = $row['BMI'];
+  $bmr = $row['BMR'];
+  $mbp = $row['MeanBloodPressure'];
+
+  $_SESSION['bmi'] = $bmi;
+  $_SESSION['bmr'] = $bmr;
+  $_SESSION['mbp'] = $mbp;
+  $_SESSION['weight'] = $row['Weight'];
+  $_SESSION['$height'] = $row['Height'];
 } else {
   $flag = 0;
 }
@@ -24,7 +30,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="card">
           <div class="card-header p-3 pt-2">
             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-              <i class="material-icons opacity-10">weekend</i>
+              <i class="material-icons opacity-10">fitness_center</i>
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Your BMI</p>
@@ -51,7 +57,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="card">
           <div class="card-header p-3 pt-2">
             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-              <i class="material-icons opacity-10">person</i>
+              <i class="material-icons opacity-10">directions_run</i>
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Your BMR</p>
@@ -78,7 +84,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="card">
           <div class="card-header p-3 pt-2">
             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-              <i class="material-icons opacity-10">person</i>
+              <i class="material-icons opacity-10">favorite</i>
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Mean Blood pressure</p>
@@ -106,7 +112,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="card">
           <div class="card-header p-3 pt-2">
             <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-              <i class="material-icons opacity-10">weekend</i>
+              <i class="material-icons opacity-10">accessibility</i>
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Weight</p>
@@ -196,6 +202,84 @@ if ($result && mysqli_num_rows($result) > 0) {
         </div>
       </div>
     </div>
+
+    <?php
+    // Sample user data
+    if (isset($_SESSION['bmi'])) {
+      $userBMI = $_SESSION['bmi'];
+    } else {
+      $userBMI = NULL;
+    }
+    if (isset($_SESSION['bmr'])) {
+      $userBMR = $_SESSION['bmr'];
+    } else {
+      $userBMR = NULL;
+    }
+    if (isset($_SESSION['bmi'])) {
+      $userMeanBP = $_SESSION['mbp'];
+    } else {
+      $userMeanBP = NULL;
+    }
+
+    // Function to provide comprehensive diet recommendations
+    function getComprehensiveDietRecommendation($bmi, $bmr, $meanBP)
+    {
+      $dietRecommendation = array();
+
+      // Diet recommendation based on BMI
+      if ($bmi < 18.5) {
+        $dietRecommendation['bmi']['condition'] = "Underweight";
+        $dietRecommendation['bmi']['remarks'] = "Include more protein and healthy fats in your diet. Consider foods like chicken, fish, avocados, and nuts.";
+        $dietRecommendation['bmi']['exercise'] = "Exercise Daily for BMI";
+      } elseif ($bmi >= 18.5 && $bmi < 25) {
+        $dietRecommendation['bmi']['condition'] = "Normal Weight";
+        $dietRecommendation['bmi']['remarks'] = "Maintain a balanced diet with a variety of fruits, vegetables, and whole grains.";
+        $dietRecommendation['bmi']['exercise'] = "Exercise Daily for BMI";
+      } else {
+        $dietRecommendation['bmi']['condition'] = "Overweight";
+        $dietRecommendation['bmi']['remarks'] = "Focus on portion control and include more fruits and vegetables. Limit intake of processed foods and sugary beverages.";
+        $dietRecommendation['bmi']['exercise'] = "Exercise Daily for BMI";
+      }
+
+      // Diet recommendation based on BMR
+      if ($bmr < 1500) {
+        $dietRecommendation['bmr']['condition'] = "Low BMR";
+        $dietRecommendation['bmr']['remarks'] = "Consider incorporating regular aerobic exercises to boost metabolism.";
+        $dietRecommendation['bmr']['exercise'] = "Exercise Daily for bmr";
+      } elseif ($bmr >= 1500 && $bmr < 2000) {
+        $dietRecommendation['bmr']['condition'] = "Normal BMR";
+        $dietRecommendation['bmr']['remarks'] = "Maintain a regular exercise routine to stay healthy.";
+        $dietRecommendation['bmr']['exercise'] = "Exercise Daily for bmr";
+      } else {
+        $dietRecommendation['bmr']['condition'] = "High BMR";
+        $dietRecommendation['bmr']['remarks'] = "Include strength training exercises to build muscle mass.";
+        $dietRecommendation['bmr']['exercise'] = "Exercise Daily for bmr";
+      }
+
+      // Diet recommendation based on Mean Blood Pressure
+      if ($meanBP < 80) {
+        $dietRecommendation['meanBP']['condition'] = "Low Blood Pressure";
+        $dietRecommendation['meanBP']['remarks'] = "Consult with a healthcare professional.";
+        $dietRecommendation['mbp']['exercise'] = "Exercise Daily for MBP";
+      } elseif ($meanBP >= 80 && $meanBP <= 120) {
+        $dietRecommendation['meanBP']['condition'] = "Normal Blood Pressure";
+        $dietRecommendation['meanBP']['remarks'] = "Maintain a healthy lifestyle.";
+        $dietRecommendation['meanBP']['exercise'] = "Exercise Daily for MBP";
+      } else {
+        $dietRecommendation['meanBP']['condition'] = "High Blood Pressure";
+        $dietRecommendation['meanBP']['remarks'] = "Consult with a healthcare professional.";
+        $dietRecommendation['meanBP']['exercise'] = "Exercise Daily for MBP";
+      }
+
+      return $dietRecommendation;
+    }
+
+
+    // Display comprehensive recommendations
+    $comprehensiveRecommendations = getComprehensiveDietRecommendation($userBMI, $userBMR, $userMeanBP);
+    ?>
+
+
     <div class="row mb-4">
       <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
         <div class="card">
@@ -239,358 +323,167 @@ if ($result && mysqli_num_rows($result) > 0) {
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Food
+                      Category
                     </th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                      Type
+                      Condition
                     </th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Price
+                      Remarks
                     </th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Completion
+                      Exercise
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div>
-                          <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd" />
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">Material XD Version</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="avatar-group mt-2">
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                          <img src="../assets/img/team-1.jpg" alt="team1" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                          <img src="../assets/img/team-2.jpg" alt="team2" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                          <img src="../assets/img/team-3.jpg" alt="team3" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                          <img src="../assets/img/team-4.jpg" alt="team4" />
-                        </a>
-                      </div>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-xs font-weight-bold">
-                        $14,000
-                      </span>
-                    </td>
-                    <td class="align-middle">
-                      <div class="progress-wrapper w-75 mx-auto">
-                        <div class="progress-info">
-                          <div class="progress-percentage">
-                            <span class="text-xs font-weight-bold">60%</span>
+                  <?php foreach ($comprehensiveRecommendations as $condition => $details) : ?>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">
+                              <?php echo ucfirst($condition); ?>
+                            </h6>
                           </div>
                         </div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div>
-                          <img src="../assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian" />
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">Add Progress Track</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="avatar-group mt-2">
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                          <img src="../assets/img/team-2.jpg" alt="team5" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                          <img src="../assets/img/team-4.jpg" alt="team6" />
-                        </a>
-                      </div>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-xs font-weight-bold"> $3,000 </span>
-                    </td>
-                    <td class="align-middle">
-                      <div class="progress-wrapper w-75 mx-auto">
-                        <div class="progress-info">
-                          <div class="progress-percentage">
-                            <span class="text-xs font-weight-bold">10%</span>
-                          </div>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-info w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div>
-                          <img src="../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7" />
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">Fix Platform Errors</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="avatar-group mt-2">
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                          <img src="../assets/img/team-3.jpg" alt="team8" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                          <img src="../assets/img/team-1.jpg" alt="team9" />
-                        </a>
-                      </div>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-xs font-weight-bold">
-                        Not set
-                      </span>
-                    </td>
-                    <td class="align-middle">
-                      <div class="progress-wrapper w-75 mx-auto">
-                        <div class="progress-info">
-                          <div class="progress-percentage">
-                            <span class="text-xs font-weight-bold">100%</span>
-                          </div>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div>
-                          <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm me-3" alt="spotify" />
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">
-                            Launch our Mobile App
-                          </h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="avatar-group mt-2">
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                          <img src="../assets/img/team-4.jpg" alt="user1" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                          <img src="../assets/img/team-3.jpg" alt="user2" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                          <img src="../assets/img/team-4.jpg" alt="user3" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                          <img src="../assets/img/team-1.jpg" alt="user4" />
-                        </a>
-                      </div>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-xs font-weight-bold">
-                        $20,500
-                      </span>
-                    </td>
-                    <td class="align-middle">
-                      <div class="progress-wrapper w-75 mx-auto">
-                        <div class="progress-info">
-                          <div class="progress-percentage">
-                            <span class="text-xs font-weight-bold">100%</span>
-                          </div>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div>
-                          <img src="../assets/img/small-logos/logo-jira.svg" class="avatar avatar-sm me-3" alt="jira" />
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">
-                            Add the New Pricing Page
-                          </h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="avatar-group mt-2">
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                          <img src="../assets/img/team-4.jpg" alt="user5" />
-                        </a>
-                      </div>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-xs font-weight-bold"> $500 </span>
-                    </td>
-                    <td class="align-middle">
-                      <div class="progress-wrapper w-75 mx-auto">
-                        <div class="progress-info">
-                          <div class="progress-percentage">
-                            <span class="text-xs font-weight-bold">25%</span>
-                          </div>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="25"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div>
-                          <img src="../assets/img/small-logos/logo-invision.svg" class="avatar avatar-sm me-3" alt="invision" />
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">
-                            Redesign New Online Shop
-                          </h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="avatar-group mt-2">
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                          <img src="../assets/img/team-1.jpg" alt="user6" />
-                        </a>
-                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                          <img src="../assets/img/team-4.jpg" alt="user7" />
-                        </a>
-                      </div>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-xs font-weight-bold"> $2,000 </span>
-                    </td>
-                    <td class="align-middle">
-                      <div class="progress-wrapper w-75 mx-auto">
-                        <div class="progress-info">
-                          <div class="progress-percentage">
-                            <span class="text-xs font-weight-bold">40%</span>
-                          </div>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-info w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
+                      </td>
+
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold">
+                          <?php echo $details['condition']; ?>
+                        </span>
+                      </td>
+                      <td class="align-middle text-sm">
+                        <span class="text-xs font-weight-bold">
+                          <?php echo $details['remarks']; ?>
+                        </span>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold">
+                          <?php echo $details['exercise']; ?>
+                        </span>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
           </div>
+
         </div>
       </div>
       <div class="col-lg-4 col-md-6">
         <div class="card h-100">
           <div class="card-header pb-0">
-            <h6>Orders overview</h6>
-            <p class="text-sm">
+            <h6>Your Status</h6>
+            <!-- <p class="text-sm">
               <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
               <span class="font-weight-bold">24%</span> this month
-            </p>
+            </p> -->
           </div>
           <div class="card-body p-3">
             <div class="timeline timeline-one-side">
               <div class="timeline-block mb-3">
                 <span class="timeline-step">
-                  <i class="material-icons text-success text-gradient">notifications</i>
+                  <i class="material-icons text-primary text-gradient">height</i>
                 </span>
                 <div class="timeline-content">
                   <h6 class="text-dark text-sm font-weight-bold mb-0">
-                    $2400, Design changes
+                    Height:
                   </h6>
                   <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
-                    22 DEC 7:20 PM
+                    <?php
+                    if ($flag == 0 || $row['Height'] == NULL) {
+                      echo 'XXXX';
+                    } else {
+                      echo $row['Height'];
+                    }
+                    ?>
+                  </p>
+                </div>
+              </div>
+
+
+              <div class="timeline-block mb-3">
+                <span class="timeline-step">
+                  <i class="material-icons text-warning text-gradient">accessibility</i>
+                </span>
+                <div class="timeline-content">
+                  <h6 class="text-dark text-sm font-weight-bold mb-0">
+                    Weight:
+                  </h6>
+                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
+                    <?php
+                    if ($flag == 0 || $row['Weight'] == NULL) {
+                      echo 'XXXX';
+                    } else {
+                      echo $row['Weight'];
+                    }
+                    ?>
+                  </p>
+                </div>
+              </div>
+
+              <div class="timeline-block mb-3">
+                <span class="timeline-step">
+                  <i class="material-icons text-success text-gradient">fitness_center</i>
+                </span>
+                <div class="timeline-content">
+                  <h6 class="text-dark text-sm font-weight-bold mb-0">
+                    BMI:
+                  </h6>
+                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
+                    <?php
+                    if ($flag == 0 || $row['BMI'] == NULL) {
+                      echo 'XXXX';
+                    } else {
+                      echo $row['BMI'];
+                    }
+                    ?>
                   </p>
                 </div>
               </div>
               <div class="timeline-block mb-3">
                 <span class="timeline-step">
-                  <i class="material-icons text-danger text-gradient">code</i>
+                  <i class="material-icons text-danger text-gradient">directions_run</i>
                 </span>
                 <div class="timeline-content">
                   <h6 class="text-dark text-sm font-weight-bold mb-0">
-                    New order #1832412
+                    BMR:
                   </h6>
                   <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
-                    21 DEC 11 PM
+                    <?php
+                    if ($flag == 0 || $row['BMR'] == NULL) {
+                      echo 'XXXX';
+                    } else {
+                      echo $row['BMR'];
+                    }
+                    ?>
                   </p>
                 </div>
               </div>
               <div class="timeline-block mb-3">
                 <span class="timeline-step">
-                  <i class="material-icons text-info text-gradient">shopping_cart</i>
+                  <i class="material-icons text-info text-gradient">favorite</i>
                 </span>
                 <div class="timeline-content">
                   <h6 class="text-dark text-sm font-weight-bold mb-0">
-                    Server payments for April
+                    Mean Blood Pressure:
                   </h6>
                   <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
-                    21 DEC 9:34 PM
+                    <?php
+                    if ($flag == 0 || $row['MeanBloodPressure'] == NULL) {
+                      echo 'XXXX';
+                    } else {
+                      echo $row['MeanBloodPressure'];
+                    }
+                    ?>
                   </p>
                 </div>
               </div>
-              <div class="timeline-block mb-3">
-                <span class="timeline-step">
-                  <i class="material-icons text-warning text-gradient">credit_card</i>
-                </span>
-                <div class="timeline-content">
-                  <h6 class="text-dark text-sm font-weight-bold mb-0">
-                    New card added for order #4395133
-                  </h6>
-                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
-                    20 DEC 2:20 AM
-                  </p>
-                </div>
-              </div>
-              <div class="timeline-block mb-3">
-                <span class="timeline-step">
-                  <i class="material-icons text-primary text-gradient">key</i>
-                </span>
-                <div class="timeline-content">
-                  <h6 class="text-dark text-sm font-weight-bold mb-0">
-                    Unlock packages for development
-                  </h6>
-                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
-                    18 DEC 4:54 AM
-                  </p>
-                </div>
-              </div>
-              <div class="timeline-block">
-                <span class="timeline-step">
-                  <i class="material-icons text-dark text-gradient">payments</i>
-                </span>
-                <div class="timeline-content">
-                  <h6 class="text-dark text-sm font-weight-bold mb-0">
-                    New order #9583120
-                  </h6>
-                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
-                    17 DEC
-                  </p>
-                </div>
-              </div>
+
+
             </div>
           </div>
         </div>
