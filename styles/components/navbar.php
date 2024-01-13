@@ -1,3 +1,8 @@
+<?php
+if (isset($_SESSION['Name'])) {
+    $name = $_SESSION['Name'];
+}
+?>
 <header>
     <!--? Header Start -->
     <div class="header-area">
@@ -25,16 +30,16 @@
                                         <li>
                                             <a href="index.php?page=services">Service</a>
                                             <ul class="submenu">
-                                                <li><a href="BMI.php">BMI Calculator</a></li>
-                                                <li>
+                                                <li><a href="CalculateHealth.php">Calculate your Health</a></li>
+                                                <!-- <li>
                                                     <a href="BMR.php">BMR Calculator</a>
-                                                </li>
+                                                </li> -->
                                                 <!-- <li>
                                                     <a href="elements.html">Pregnancy Tracker</a>
                                                 </li> -->
-                                                <li>
+                                                <!-- <li>
                                                     <a href="pressure.php">Mean BP Calculator</a>
-                                                </li>
+                                                </li> -->
                                                 <!-- <li>
                                                     <a href="elements.html">Calories Recommender</a>
                                                 </li> -->
@@ -43,17 +48,41 @@
                                         <li><a href="index.php?page=contact">Contact</a></li>
 
                                         <!-- Added login and signup buttons in the navigation bar -->
-                                        <li><a href="../login.php" class="d-block d-md-none">Login</a></li>
+                                        <?php
+                                        if (isset($_SESSION['Name'])) {
+                                            echo
+                                            '<li><a href="dashboard\pages\app.php" class="d-block d-md-none">Dashboard</a></li>
+                                            <li><a href="logout.php" class="d-block d-md-none">Logout</a></li>';
+                                        } else {
+                                            echo
+                                            '<li><a href="../login.php" class="d-block d-md-none">Login</a></li>
+                                            <li><a href="../register.php" class="d-block d-md-none">Sign Up</a></li>';
+                                        }
+                                        ?>
+                                        <!-- <li><a href="../login.php" class="d-block d-md-none">Login</a></li>
                                         <li>
                                             <a href="../register.php" class="d-block d-md-none">Sign Up</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </nav>
                             </div>
                             <div class="header-right-btn f-right d-none d-lg-block ml-15">
                                 <!-- <button type="button" style="font-size: 90;" class="btn-outline-success">Success</button> -->
-                                <a href="../login.php" class="btn header-btn">Login</a>
-                                <a href="../register.php" class="btn header-btn">Sign Up</a>
+                                <?php
+                                if (isset($_SESSION['Name'])) {
+                                    echo
+                                    '<a href="dashboard\pages\app.php" class="btn header-btn">Dashboard</a>
+                                    <a href="logout.php" class="btn header-btn">Logout</a>';
+                                } else {
+                                    echo
+                                    '<a href="../login.php" class="btn header-btn">Login</a>
+                                    <a href="../register.php" class="btn header-btn">Sign Up</a>';
+                                }
+                                ?>
+
+
+                                <!-- <a href="../login.php" class="btn header-btn">Login</a>
+                                <a href="../register.php" class="btn header-btn">Sign Up</a> -->
                             </div>
                         </div>
                     </div>

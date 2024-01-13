@@ -28,8 +28,21 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
           <span class="nav-link-text ms-1">Dashboard</span>
         </a>
       </li>
-      <!-- <li class="nav-item">
-          <a class="nav-link
+      <li class="nav-item">
+        <a class="nav-link text-white" href="../../CalculateHealth.php">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">receipt_long</i>
+          </div>
+          <span class="nav-link-text ms-1">Calculate</span>
+        </a>
+      </li>
+      <li class="nav-item mt-3">
+        <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">
+          Account Options
+        </h6>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link
           <?php
           if ($page === 'tables') {
             echo ('active bg-gradient-primary');
@@ -37,23 +50,16 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
             echo ("");
           }
           ?>
-          text-white" href="app.php?page=tables">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Tables</span>
-          </a>
-        </li> -->
-      <!-- <li class="nav-item">
-            <a class="nav-link text-white" href="../pages/billing.html">
-              <div
-                class="text-white text-center me-2 d-flex align-items-center justify-content-center"
-              >
-                <i class="material-icons opacity-10">receipt_long</i>
-              </div>
-              <span class="nav-link-text ms-1">Billing</span>
-            </a>
-          </li> -->
+          text-white" href="../../logout.php">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">assignment</i>
+          </div>
+          <span class="nav-link-text ms-1">Logout</span>
+        </a>
+      </li>
+
+
+
       <!-- <li class="nav-item">
             <a class="nav-link text-white" href="../pages/virtual-reality.html">
               <div
