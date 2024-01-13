@@ -18,9 +18,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->fetch();
   $stmt->close();
 
+  $sql = "SELECT * FROM healthrecord WHERE UserID = $userID ORDER BY RecordID ASC";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      $_SESSION['systolic'] = $row["SystolicPressure"];
+      $_SESSION['diastolic'] = $row["DiastolicPressure"];
+      $_SESSION['height'] = $row["Height"];
+      $_SESSION['weight'] = $row["Weight"];
+      $_SESSION['bmi'] = $bmi;
+      $_SESSION['bmr'] = $bmr;
+      $_SESSION['mbp'] = $mbp;
+    }
+  }
+
   // Verify the entered password with the hashed password from the database
   if (password_verify($password, $hashed_password)) {
-    $_SESSION['UserID'] = $userId;
+    $_SESSION['user_id'] = $userID;
     $_SESSION['Name'] = $name;
     $_SESSION['Email'] = $email;
     // Additional actions after successful login can be added here
@@ -29,16 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     echo "Invalid email or password.";
   }
-
   // Close the database connection
   $conn->close();
 }
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="style_login.css" />
 </head>
 
-<body>
+<body >
   <section class="h-100 gradient-form " style="background-color: #eee;">
     <div class="container py-5 h-100 ">
       <div class="row d-flex justify-content-center align-items-center h-100 ">
@@ -95,8 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card-body p-md-5 ">
 
                   <div class="text-center ">
-                    <img src="logo.png" style="width: 200px;" alt="logo">
-
+                    <a href="index.php"><img src="assets\img\logo\logo.png" style="width: 400px;" alt="logo">
+                    </a>
                   </div>
                   <h2 class="mt-4 mb-4 pb-1 text-center fw-bold">Login</h2>
 
@@ -117,10 +125,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       </div>
                     </div>
 
-                    <div class="text-center pt-1 mb-5 pb-1 ml-5">
+                    <div class="text-center pt-1 mb-5 pb-1 ml-3">
                       <input name="login" value="Login" type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 mr-5 ml-5 pt-3 pb-3" style="width: 150px; height: 50px;" type="button">
-
-                      <a class="text-muted mr-5" href="#!">Forgot password?</a>
+                      <br>
+                      <a class="text-muted ml-5 mr-5" href="#!">Forgot password?</a>
                     </div>
 
                     <div class="d-flex align-items-center justify-content-center pb-4">
@@ -133,11 +141,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
               </div>
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                <div class="text-white px-3 py-4 p-md-5 ">
-                  <h4 class="mb-4">We are more than just a company</h4>
-                  <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="text-black px-3 py-4 p-md-5 ">
+                  <h4 class="mb-4 " style="text-decoration: solid;">We are more than just a company</h4>
+                  <p class="small mb-0">Welcome to our innovative health companion app, your personalized guide to a vibrant life ,ensuring a seamless journey towards better health at your fingertips.</p>
                 </div>
               </div>
             </div>

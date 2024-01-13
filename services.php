@@ -1,3 +1,34 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Health Metrics Tracker</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- CSS here -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="assets/css/slicknav.css" />
+  <link rel="stylesheet" href="assets/css/flaticon.css" />
+  <link rel="stylesheet" href="assets/css/gijgo.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/animated-headline.css" />
+  <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="assets/css/themify-icons.css" />
+  <link rel="stylesheet" href="assets/css/slick.css" />
+  <link rel="stylesheet" href="assets/css/nice-select.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- FontAwsome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
 <!-- ? Preloader Start -->
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -22,8 +53,7 @@
                             <div class="hero-wrapper">
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">Services</h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s">Almost before we knew it, we<br>
-                                        had left the ground</p>
+                                    <p data-animation="fadeInUp" data-delay=".6s">We provide a simplified way to keep track of your health</p>
                                 </div>
                             </div>
                         </div>
@@ -33,14 +63,13 @@
         </div>
     </div>
     <!-- Slider Area End -->
-    <section class="wantToWork-area">
+    <section class="wantToWork-area  section-bg3" data-background="assets/img/gallery/section_bg01.png">
         <div class="container">
             <div class="wants-wrapper w-padding2">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-xl-7 col-lg-9 col-md-8">
                         <div class="wantToWork-caption wantToWork-caption2">
                             <h2>Happy mind <br>healthy life</h2>
-                            <p>Almost before we knew it, we<br> had left the ground</p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
@@ -60,10 +89,9 @@
                             <img src="assets/img/icon/services1.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="index.php?page=services">Physical Activity</a></h5>
-                            <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium
-                                mi sem ut ipsum.</p>
-                            <a href="index.php?page=services" class="plus-btn"><i class="ti-plus"></i></a>
+                            <h5><a href="BMI.php">Mean BP Calculator</a></h5>
+                            <p>Effortlessly monitor  your blood pressure with our app, ensuring a proactive approach to your health.</p>
+                            <a href="pressure.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
                     </div>
                 </div>
@@ -73,10 +101,9 @@
                             <img src="assets/img/icon/services2.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="index.php?page=services">Physical Activity</a></h5>
-                            <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium
-                                mi sem ut ipsum.</p>
-                            <a href="index.php?page=services" class="plus-btn"><i class="ti-plus"></i></a>
+                            <h5><a href="BMI.php">BMI Calculator</a></h5>
+                            <p>Track your BMI effortlessly, reach wellness goals with ease - our simple calculator app has you covered!</p>
+                            <a href="BMI.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
                     </div>
                 </div>
@@ -86,10 +113,9 @@
                             <img src="assets/img/icon/services3.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="index.php?page=services">Physical Activity</a></h5>
-                            <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium
-                                mi sem ut ipsum.</p>
-                            <a href="index.php?page=services" class="plus-btn"><i class="ti-plus"></i></a>
+                            <h5><a href="BMR.php">BMR Calculator</a></h5>
+                            <p>Stay on top of your halthy liefstyle remember us for smart food and habit choices</p>
+                            <a href="BMR.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
                     </div>
                 </div>
@@ -98,7 +124,7 @@
     </div>
     <!-- Services Area End -->
     <!--? video_start -->
-    <div class="container pt-40">
+    <div class="container pt-40 mb-100">
         <div class="video-area section-bg2 d-flex align-items-center" data-background="assets/img/gallery/video-bg.png">
             <div class="video-wrap position-relative">
                 <div class="video-icon">
@@ -109,58 +135,7 @@
     </div>
     <!-- video_end -->
     <!--? Testimonial Area Start -->
-    <section class="testimonial-area testimonial-padding fix pb-bottom">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class=" col-lg-9">
-                    <div class="about-caption">
-                        <!-- Testimonial Start -->
-                        <div class="h1-testimonial-active dot-style">
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial position-relative">
-                                <div class="testimonial-caption">
-                                    <img src="assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
-                                    <p>"The automated process starts as soon as your clothe go into the machine.
-                                        This site outcome is gleaming clothe. Placeholder text commonly used. In
-                                        publishing and graphic.</p>
-                                </div>
-                                <!-- founder -->
-                                <div class="testimonial-founder d-flex align-items-center">
-                                    <div class="founder-img">
-                                        <img src="assets/img/icon/testimonial.png" alt="">
-                                    </div>
-                                    <div class="founder-text">
-                                        <span>Robart Brown</span>
-                                        <p>Creative designer at Colorlib</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial position-relative">
-                                <div class="testimonial-caption">
-                                    <img src="assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
-                                    <p>"The automated process starts as soon as your clothe go into the machine.
-                                        This site outcome is gleaming clothe. Placeholder text commonly used. In
-                                        publishing and graphic.</p>
-                                </div>
-                                <!-- founder -->
-                                <div class="testimonial-founder d-flex align-items-center">
-                                    <div class="founder-img">
-                                        <img src="assets/img/icon/testimonial.png" alt="">
-                                    </div>
-                                    <div class="founder-text">
-                                        <span>Robart Brown</span>
-                                        <p>Creative designer at Colorlib</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial End -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <!--? Testimonial Area End -->
 </main>
 

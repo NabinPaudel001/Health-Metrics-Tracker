@@ -6,10 +6,11 @@ if (!isset($_SESSION["Name"])) {
     exit();
 }
 ?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
-<head>
+<h>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Health | Template</title>
@@ -35,7 +36,8 @@ if (!isset($_SESSION["Name"])) {
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <link rel="stylesheet" href="BMR_style.css">
+    <link rel="stylesheet" href="BMI.css">
+    <link rel="stylesheet" href="pressure.css">
 </head>
 
 <body>
@@ -55,6 +57,7 @@ if (!isset($_SESSION["Name"])) {
         <?php
         include 'styles\components\navbar.php';
         ?>
+
         <main>
             <!--? Slider Area Start-->
             <div class="slider-area slider-area2">
@@ -67,7 +70,7 @@ if (!isset($_SESSION["Name"])) {
                                     <div class="hero-wrapper">
                                         <div class="hero__caption">
                                             <h1 data-animation="fadeInUp" data-delay=".3s">Services</h1>
-                                            <p data-animation="fadeInUp" data-delay=".6s">BMR Calculator</p>
+                                            <p data-animation="fadeInUp" data-delay=".6s">BMI Calculator</p>
                                         </div>
                                     </div>
                                 </div>
@@ -76,41 +79,38 @@ if (!isset($_SESSION["Name"])) {
                     </div>
                 </div>
             </div>
-            <div class="container mb-100">
+            <div class="container mb-50">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form id="bmrForm">
+                        <form id="bmiForm" method="POST" action="store_health.php">
                             <div class="form-group">
-                                <label for="weight" class="input-label">Weight (kg):</label>
-                                <input type="number" style="height: 35px;" class="form-control" id="weight" placeholder="Enter weight">
+                                <label for="height" class="weight_height">Height (cm):</label>
+                                <input type="number" name="height" class="form-control" style="height: 35px;" id="height" placeholder="Enter height">
                             </div>
                             <div class="form-group">
-                                <label for="height" class="input-label">Height (cm):</label>
-                                <input type="number" style="height: 35px;" class="form-control" id="height" placeholder="Enter height">
+                                <label for="weight" class="weight_height">Weight (kg):</label>
+                                <input type="number" name="weight" class="form-control" style="height: 35px;" id="weight" placeholder="Enter weight">
                             </div>
                             <div class="form-group">
-                                <label for="age" class="input-label">Age (years):</label>
-                                <input type="number" style="height: 35px;" class="form-control" id="age" placeholder="Enter age">
+                                <label for="systolic" class="input-label">Systolic Pressure:</label>
+                                <input type="number" name="systolic" class="form-control" style="height: 35px;" id="systolic" placeholder="Enter systolic pressure">
                             </div>
                             <div class="form-group">
-                                <label class="input-label">Gender:</label>
-                                <div class="form-check">
-                                    <input class="form-check-input sel"  type="radio" name="gender" id="male" value="male">
-                                    <label class="form-check-label sel" for="male">Male</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input sel"  type="radio" name="gender" id="female" value="female">
-                                    <label class="form-check-label sel"  for="female">Female</label>
-                                </div>
+                                <label for="diastolic" class="input-label">Diastolic Pressure:</label>
+                                <input type="number" name="diastolic" class="form-control" style="height: 35px;" id="diastolic" placeholder="Enter diastolic pressure">
                             </div>
-                            <button type="button" class="btn-outline-success py-3 btn-block" onclick="calculateBMR()">Calculate</button>
+                            <button type="submit" class=" btn-outline-success py-2 btn-block">Calculate</button>
+                            <!-- <input type="text" id="bmi" name="bmi" hidden  > -->
                         </form>
 
-                        <div id="result" class="fade"></div>
+                        <div id="result"></div>
 
                     </div>
                 </div>
             </div>
+            <!-- <script> -->
+
+
 
             <!-- Bootstrap JS and Popper.js -->
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -118,41 +118,72 @@ if (!isset($_SESSION["Name"])) {
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
             <script>
-                function calculateBMR() {
-                    var weight = document.getElementById('weight').value;
-                    var height = document.getElementById('height').value;
-                    var age = document.getElementById('age').value;
-                    var gender = document.querySelector('input[name="gender"]:checked');
+                // function submitForm() {
+                //     var height = document.getElementById('height').value;
+                //     var weight = document.getElementById('weight').value;
 
-                    if (weight && height && age && gender) {
-                        var bmr;
+                //     // Check if height and weight are provided
+                //     var bmi = (weight / ((height / 100) * (height / 100))).toFixed(2);
+                //     // document.getElementById('bmi').value=bmi;
+                //     if (height && weight) {
+                //         var resultDiv = document.getElementById('result');
+                //         resultDiv.innerHTML = '<h5>Your BMI: ' + bmi + '</h5>';
 
-                        if (gender.value === 'Male') {
-                            bmr = 66 + (13.7 * weight) + (5 * height) - (6.8 * age);
-                        } else {
-                            bmr = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
-                        }
+                //         // Add additional styling based on BMI category
+                //         if (bmi < 18.5) {
+                //             resultDiv.innerHTML += '<p class="text-danger">Underweight</p>';
+                //             resultDiv.style.backgroundColor = '#f8d7da';
+                //         } else if (bmi >= 18.5 && bmi < 24.9) {
+                //             resultDiv.innerHTML += '<p class="text-success">Normal weight</p>';
+                //             resultDiv.style.backgroundColor = '#d4edda';
+                //         } else if (bmi >= 25 && bmi < 29.9) {
+                //             resultDiv.innerHTML += '<p class="text-warning">Pre-obese</p>';
+                //             resultDiv.style.backgroundColor = '#FFC0CB';
+                //         } else if (bmi >= 30 && bmi < 34.9) {
+                //             resultDiv.innerHTML += '<p class="text-warning">Obese-Class I</p>';
+                //             resultDiv.style.backgroundColor = '#FF6961';
+                //         } else if (bmi >= 35 && bmi < 39.9) {
+                //             resultDiv.innerHTML += '<p class="text-warning">Obese-Class II</p>';
+                //             resultDiv.style.backgroundColor = '#DC143C';
+                //         } else if (bmi >= 40) {
+                //             resultDiv.innerHTML += '<p class="text-warning">Obese-Class III</p>';
+                //             resultDiv.style.backgroundColor = '#eb3345';
+                //         }
 
-                        var resultDiv = document.getElementById('result');
-                        resultDiv.innerHTML = "<h3 class='text-center' style='font-size:15px'>Your BMR: <span class='font-weight-bold'>" + bmr.toFixed(2) + "</span>" + ' calories/day</h3>';
-                        resultDiv.classList.add('show');
-                        // Change background color based on BMR value
-                        if (bmr < 1500) {
-                            resultDiv.innerHTML += '<p class="text-danger text-center">Under</p>';
-                            resultDiv.style.backgroundColor = '#fff3cd'; // Red background for low BMR
-                        } else if (bmr >= 1500 && bmr < 2000) {
-                            resultDiv.innerHTML += '<p class="text-success text-center">Normal</p>';
-                            resultDiv.style.backgroundColor = '#d4edda'; // Green background for moderate BMR
-                        } else {
-                            resultDiv.innerHTML += '<p class="text-warning text-center">Over</p>';
-                            resultDiv.style.backgroundColor = '#f8d7da'; //  background for high BMR
-                        }
-                    } else {
-                        alert('Please enter all the required information.');
-                    }
-                }
+                //         // Display the result
+                //         resultDiv.style.display = 'block';
+                //     } else {
+                //         alert('Please enter both height and weight');
+                //     }
+                //     var height = document.getElementById('height').value;
+                //     var weight = document.getElementById('weight').value;
+                //     // var bmi=document.getElementById('bmi').value;
+
+                //     var xhr = new XMLHttpRequest();
+
+                //     // Specify the type of request, the URL, and whether the request should be asynchronous
+                //     xhr.open('POST', 'store_BMI.php', true);
+
+                //     // Set the request header
+                //     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                //     // Define the data to be sent to the server
+                //     var data = 'height=' + height + '&weight=' + weight;
+
+                //     // Set the callback function to handle the response from the server
+                //     xhr.onreadystatechange = function() {
+                //         if (xhr.readyState == 4 && xhr.status == 200) {
+                //             // Display the server response
+                //             // document.getElementById('result').innerHTML = xhr.responseText;
+                //         }
+                //     };
+
+                //     // Send the data to the server
+                //     xhr.send(data);
+                //     // Get values from input fields
+                // }
             </script>
-          <footer>
+           <footer>
     <div class="footer-wrapper section-bg3 " style="background-image:url(&quot;assets/img/gallery/footer-bg.png&quot;);transform: translateY(-20px);height:400px">
         <div class="footer-area footer-padding" >
             <div class="container">
@@ -173,6 +204,7 @@ if (!isset($_SESSION["Name"])) {
                                                     <li><a href="../index.php">Home</a></li>
                                                     <li><a href="index.php?page=about">About</a></li>
                                                     <li><a href="index.php?page=services">Services</a></li>
+                                                    <li><a href="blog.php">Blog</a></li>
                                                     <li><a href="index.php?page=contact">Contact</a></li>
                                                 </ul>
                                             </nav>

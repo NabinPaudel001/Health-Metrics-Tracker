@@ -19,7 +19,6 @@
                                                     <li><a href="../index.php">Home</a></li>
                                                     <li><a href="index.php?page=about">About</a></li>
                                                     <li><a href="index.php?page=services">Services</a></li>
-                                                    <li><a href="blog.php">Blog</a></li>
                                                     <li><a href="index.php?page=contact">Contact</a></li>
                                                 </ul>
                                             </nav>
@@ -57,8 +56,7 @@
                             <div class="footer-tittle">
                                 <div class="footer-pera">
                                     <p>
-                                        Praesent porttitor, nulla vitae posuere iaculis, arcu
-                                        nisl dignissim dolor, a pretium misem ut ipsum.
+                                        Never miss new exciting and updates from us !!! Subscribe to our newsletter.
                                     </p>
                                 </div>
                             </div>

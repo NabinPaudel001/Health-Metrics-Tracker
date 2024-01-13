@@ -80,6 +80,8 @@
                         </p>
                         <div class="icon-about">
                             <img src="assets/img/icon/about1.svg" alt="" class="mr-20" />
+                            <img src="assets/img/icon/about2.svg" alt="" class="mr-20" />
+                            <img src="assets/img/icon/about1.svg" alt="" class="mr-20" />
                         
                         </div>
                     </div>
@@ -94,12 +96,12 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-xl-7 col-lg-9 col-md-8">
                         <div class="wantToWork-caption wantToWork-caption2">
-                            <h2>Happy mind <br />healthy life</h2>
+                            <h2>Happy mind <br />Healthy life</h2>
                           
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
-                        <a href="services.html" class="btn f-right sm-left">Take a Service</a>
+                        <a href="services.php" class="btn f-right sm-left">Take a Service</a>
                     </div>
                 </div>
             </div>
@@ -112,52 +114,42 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cat text-center mb-50">
                         <div class="cat-icon">
-                            <img src="assets/img/icon/services1.svg" alt="" />
+                            <img src="assets/img/icon/services1.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="services.html">Physical Activity</a></h5>
-                            <p>
-                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                dignissim dolor, a pretium mi sem ut ipsum.
-                            </p>
-                            <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                            <h5><a href="BMI.php">Mean BP Calculator</a></h5>
+                            <p>Effortlessly monitor  your blood pressure with our app, ensuring a proactive approach to your health.</p>
+                            <a href="pressure.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cat text-center mb-50">
                         <div class="cat-icon">
-                            <img src="assets/img/icon/services2.svg" alt="" />
+                            <img src="assets/img/icon/services2.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="services.html">Physical Activity</a></h5>
-                            <p>
-                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                dignissim dolor, a pretium mi sem ut ipsum.
-                            </p>
-                            <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                            <h5><a href="BMI.php">BMI Calculator</a></h5>
+                            <p>Track your BMI effortlessly, reach wellness goals with ease - our simple calculator app has you covered!</p>
+                            <a href="BMI.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cat text-center mb-50">
                         <div class="cat-icon">
-                            <img src="assets/img/icon/services3.svg" alt="" />
+                            <img src="assets/img/icon/services3.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="services.html">Physical Activity</a></h5>
-                            <p>
-                                Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-                                dignissim dolor, a pretium mi sem ut ipsum.
-                            </p>
-                            <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                            <h5><a href="BMR.php">BMR Calculator</a></h5>
+                            <p>Stay on top of your halthy liefstyle remember us for smart food and habit choices</p>
+                            <a href="BMR.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Services Area End -->
+    </div><!-- Services Area End -->
     <!--? Testimonial Area Start -->
     <section class="testimonial-area testimonial-padding fix">
         <div class="container">
