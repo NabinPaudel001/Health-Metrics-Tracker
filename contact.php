@@ -487,9 +487,9 @@
                         });
                     }
                 </script>
-                <script
+                <!-- <script
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
-                    </script>
+                    </script> -->
 
             </div>
             <div class="row">
@@ -560,6 +560,7 @@
             </div>
         </div>
     </section>
+                    
     <!-- Contact Area End -->
 </main>
 
