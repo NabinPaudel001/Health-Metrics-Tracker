@@ -712,8 +712,13 @@ if ($result && mysqli_num_rows($result) > 0) {
           labels: chartData.map(item => 'Record ' + item.RecordID),
           datasets: [{
             label: 'BMI',
+            borderWidth: 0,
+            borderRadius: 4,
+            borderSkipped: false,
+            backgroundColor: "rgba(255, 255, 255, .8)",
             data: chartData.map(item => item.BMI),
-            backgroundColor: 'rgba(75, 192, 192, 0.8)', // Adjust the color as needed
+            backgroundColor: "rgba(255, 255, 255, .8)",
+            // Adjust the color as needed
             borderWidth: 1
           }]
 
@@ -791,12 +796,22 @@ if ($result && mysqli_num_rows($result) > 0) {
           }),
           datasets: [{
             label: 'BMR',
+            tension: 0,
+            borderWidth: 0,
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(255, 255, 255, .8)",
+            pointBorderColor: "transparent",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderWidth: 4,
+            backgroundColor: "transparent",
+            fill: true,
             data: chartData.map(function(item) {
               return item.BMR;
             }),
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 2,
-            fill: false
+            // borderColor: 'rgba(255, 99, 132, 1)',
+            maxBarThickness: 6
+            //borderWidth: 2,
+            //fill: false
           }]
         },
         options: {
@@ -869,12 +884,19 @@ if ($result && mysqli_num_rows($result) > 0) {
           }),
           datasets: [{
             label: 'Mean Blood Pressure',
+            tension: 0,
+            borderWidth: 0,
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(255, 255, 255, .8)",
+            pointBorderColor: "transparent",
+            borderColor: "rgba(255, 255, 255, .8)",
+            borderWidth: 4,
+            backgroundColor: "transparent",
+            fill: true,
             data: chartData.map(function(item) {
               return item.MeanBloodPressure;
             }),
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 2,
-            fill: false
+            maxBarThickness: 6,
           }]
         },
         options: {

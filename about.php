@@ -44,12 +44,12 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="single-cat text-center mb-30">
                         <div class="cat-icon">
-                        <img src="nabin.png" style="height: 291px;" alt="" />
+                            <img src="nabin.png" style="height: 291px;" alt="" />
                         </div>
                         <div class="cat-cap">
                             <h5><a href="#">Nabin Paudel</a></h5>
                             <p>
-                                System Analyst ,Frontend Development
+                                Frontend Development, System Analyst
                             </p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="single-cat text-center mb-30">
                         <div class="cat-icon">
-                        <img src="sanjib.png" style="height: 291px;" alt="" />
+                            <img src="sanjib.png" style="height: 291px;" alt="" />
                         </div>
                         <div class="cat-cap">
                             <h5><a href="#">Sanjib Shah</a></h5>
