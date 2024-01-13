@@ -53,7 +53,7 @@
                             <div class="hero-wrapper">
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">Services</h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s">We provide a simplified way to keep track of your health</p>
+                                    <p data-animation="fadeInUp" data-delay=".6s" style="font-size: 2rem;">We provide a simplified way to keep track of your health in user friendly interface.</p>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
-                        <a href="index.php?page=services" class="btn f-right sm-left">Take a Service</a>
+                        <a href="pressure.php" class="btn f-right sm-left">Take a Service</a>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                             <img src="assets/img/icon/services1.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="BMI.php">Mean BP Calculator</a></h5>
+                            <h5><a href="pressure.php">Mean BP Calculator</a></h5>
                             <p>Effortlessly monitor  your blood pressure with our app, ensuring a proactive approach to your health.</p>
                             <a href="pressure.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
@@ -101,9 +101,9 @@
                             <img src="assets/img/icon/services2.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="BMI.php">BMI Calculator</a></h5>
+                            <h5><a href="pressure.php">BMI Calculator</a></h5>
                             <p>Track your BMI effortlessly, reach wellness goals with ease - our simple calculator app has you covered!</p>
-                            <a href="BMI.php" class="plus-btn"><i class="ti-plus"></i></a>
+                            <a href="pressure.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
                     </div>
                 </div>
@@ -113,9 +113,9 @@
                             <img src="assets/img/icon/services3.svg" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="BMR.php">BMR Calculator</a></h5>
+                            <h5><a href="pressure.php">BMR Calculator</a></h5>
                             <p>Stay on top of your halthy liefstyle remember us for smart food and habit choices</p>
-                            <a href="BMR.php" class="plus-btn"><i class="ti-plus"></i></a>
+                            <a href="pressure.php" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
                     </div>
                 </div>

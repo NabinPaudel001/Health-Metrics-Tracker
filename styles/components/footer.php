@@ -72,7 +72,7 @@
                     <div class="row">
                         <div class="col-xl-5">
                             <div class="footer-copy-right">
-                                <p>
+                                <p style="font-size: 13px;">
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());

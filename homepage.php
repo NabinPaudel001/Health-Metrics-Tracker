@@ -10,7 +10,7 @@
                             <div class="hero-wrapper">
                                 <!-- Video icon -->
                                 <div class="video-icon">
-                                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
+                                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=-KnHGSZaFzc" data-animation="bounceIn" data-delay=".4s">
                                         <i class="fas fa-play"></i>
                                     </a>
                                 </div>

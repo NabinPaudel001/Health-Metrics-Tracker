@@ -23,7 +23,7 @@
                             <div class="hero-wrapper">
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">About</h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s">
+                                    <p data-animation="fadeInUp" data-delay=".6s" style="font-size: 2rem;">
                                         Welcome to our innovative health companion app, your personalized guide to a vibrant life ,ensuring a seamless journey towards better health at your fingertips.
                                     </p>
                                 </div>
@@ -47,8 +47,8 @@
                             <img src="nabin.png" style="height: 291px;" alt="" />
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="#">Nabin Paudel</a></h5>
-                            <p>
+                            <h1>Nabin Paudel</h1>
+                            <p style="font-size: 1.3rem;">
                                 Frontend Development, System Analyst
                             </p>
                         </div>
@@ -60,8 +60,8 @@
                             <img src="sanjib.png" style="height: 291px;" alt="" />
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="#">Sanjib Shah</a></h5>
-                            <p>
+                            <h1>Sanjib Shah</h1>
+                            <p style="font-size: 1.3rem;">
                                 Full Stack Development
                             </p>
                         </div>
@@ -73,8 +73,8 @@
                             <img src="aman2.png" style="height: 291px;" alt="" />
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="#">Aman Sheikh</a></h5>
-                            <p>
+                            <h1 >Aman Sheikh</h1>
+                            <p style="font-size: 1.3rem;">
                                 Backend Development, Database Analyst
                             </p>
                         </div>

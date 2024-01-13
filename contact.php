@@ -23,7 +23,7 @@
                             <div class="hero-wrapper">
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">Contact Us</h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s">Get in touch with our team.
+                                    <p data-animation="fadeInUp" data-delay=".6s" style="font-size: 2rem;">Get in touch with our team.
                                 </div>
                             </div>
                         </div>

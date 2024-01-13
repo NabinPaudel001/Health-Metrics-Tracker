@@ -115,10 +115,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="index.php"><img src="assets\img\logo\logo.png" style="width: 400px;" alt="logo">
                     </a>
                   </div>
-                  <h2 class="mt-4 mb-4 pb-1 text-center fw-bold">Login</h2>
+                  <h1 class="mt-4 mb-4 pb-1 text-center fw-bold">Login</h1>
 
                   <form method="post">
-                    <p>Please login to your account</p>
+                    <p>Enter Your Email and Password</p>
 
                     <div class="col-md-20  mt-5">
                       <div class="form-group">
@@ -151,8 +151,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                 <div class="text-black px-3 py-4 p-md-5 ">
-                  <h4 class="mb-4 " style="text-decoration: solid;">We are more than just a company</h4>
-                  <p class="small mb-0">Welcome to our innovative health companion app, your personalized guide to a vibrant life ,ensuring a seamless journey towards better health at your fingertips.</p>
+                  <h1 class="mb-4 fw-bold" style="text-decoration: solid;">We are more than just a company.</h1>
+                 <br> <p class="small mb-0" style="font-size:1.2rem">Welcome to our innovative health companion app, your personalized guide to a vibrant life ,ensuring a seamless journey towards better health at your fingertips.</p>
                 </div>
               </div>
             </div>

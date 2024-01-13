@@ -70,8 +70,10 @@ if (!isset($_SESSION["Name"])) {
                                     <div class="hero-wrapper">
                                         <div class="hero__caption">
                                             <h1 data-animation="fadeInUp" data-delay=".3s">Services</h1>
-                                            <p data-animation="fadeInUp" data-delay=".6s">BMI Calculator</p>
+                                            <p data-animation="fadeInUp" data-delay=".6s">Health Metrics Calculator</p>
+
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +84,8 @@ if (!isset($_SESSION["Name"])) {
             <div class="container mb-50">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
+                    <h1 class="pb-5" data-animation="fadeInUp" data-delay=".6s">Enter the details :</h1>
+
                         <form id="bmiForm" method="POST" action="store_health.php">
                             <div class="form-group">
                                 <label for="height" class="weight_height">Height (cm):</label>
@@ -95,7 +99,7 @@ if (!isset($_SESSION["Name"])) {
                                 <label for="systolic" class="input-label">Systolic Pressure:</label>
                                 <input type="number" name="systolic" class="form-control" style="height: 35px;" id="systolic" placeholder="Enter systolic pressure">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group pb-5 ">
                                 <label for="diastolic" class="input-label">Diastolic Pressure:</label>
                                 <input type="number" name="diastolic" class="form-control" style="height: 35px;" id="diastolic" placeholder="Enter diastolic pressure">
                             </div>

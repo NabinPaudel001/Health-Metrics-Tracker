@@ -130,12 +130,12 @@ if (isset($_SESSION['Name'])) {
                   </form>
 
                 </div>
-                <div class="col-md-5 col-lg-1 col-xl-7 align-items-center  order-2 order-lg-2 pt-5" style="background: linear-gradient(90deg,#bafca6f0 3%, #9aeb8a  41%, #8bf56a  100%);">
+                <div class="col-md-5 col-lg-1 col-xl-7 align-items-center  order-2 order-lg-2 pt-5 px-5 " style="background: linear-gradient(90deg,#bafca6f0 3%, #9aeb8a  41%, #8bf56a  100%);">
                   <a href="index.php">
                   <img src="assets\img\logo\logo.png" class="img-fluid" alt="Sample image" style="height: 140px;width:570px"> <br>
                    <!-- <img src="HEART.png" class="img-fluid justify-content-center" alt="Sample image" style=" height:200px;width:200px;"> -->
                    </a>
-                   <p class="large mt-5">
+                   <p class="large mt-5" style="font-size: 1.2rem;">
                   Welcome to our innovative health companion app, your personalized guide to a vibrant life ,ensuring a seamless journey towards better health at your fingertips.
                   </p>
                 </div>
