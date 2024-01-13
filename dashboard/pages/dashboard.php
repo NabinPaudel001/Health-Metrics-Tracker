@@ -260,7 +260,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       if ($meanBP < 80) {
         $dietRecommendation['meanBP']['condition'] = "Low Blood Pressure";
         $dietRecommendation['meanBP']['remarks'] = "Consult with a healthcare professional.";
-        $dietRecommendation['mbp']['exercise'] = "Exercise Daily for MBP";
+        $dietRecommendation['meanBP']['exercise'] = "Exercise Daily for MBP";
       } elseif ($meanBP >= 80 && $meanBP <= 120) {
         $dietRecommendation['meanBP']['condition'] = "Normal Blood Pressure";
         $dietRecommendation['meanBP']['remarks'] = "Maintain a healthy lifestyle.";
