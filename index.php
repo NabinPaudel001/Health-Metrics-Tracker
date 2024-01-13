@@ -13,7 +13,9 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
-
+  <!-- alertify -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
@@ -120,6 +122,17 @@ session_start();
   <!-- Jquery Plugins, main Jquery -->
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/main.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+  <script>
+  <?php if (isset($_SESSION['message_add'])){ ?>
+          alertify.set('notifier','delay', 2);
+        alertify.set('notifier','position', 'top-right');
+        alertify.error('<?php echo $_SESSION['message_add'] ?>');
+        <?php 
+        unset($_SESSION['message_add']);
+        } 
+        ?>
+        </script>
 </body>
 
 </html>

@@ -54,7 +54,7 @@ if (isset($_SESSION['Name'])) {
 
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                  <form class="mx-1 mx-md-4" method="post" action="process_form.php">
+                  <form class="mx-1 mx-md-4" method="post" action="[Backup]process_form.php">
 
                     <div class="d-flex flex-row col-md-20  mt-3">
                       <i class="fas fa-user  fa-lg me-2 fa-fw" style="transform: translateY(12px);"></i>

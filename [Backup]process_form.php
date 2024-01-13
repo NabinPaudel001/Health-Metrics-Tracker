@@ -1,10 +1,11 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-// use PHPMailer\PHPMailer\SMTP;
 
 include 'connect.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+require 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
@@ -49,15 +50,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Server settings
             $mail->SMTPDebug = 0;
             $mail->isSMTP();
-            $mail->Host = 'outlook.office365.com';
+            $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'paudelnabin41@gmail.com'; // Your Gmail email address
-            $mail->Password = 'Meuser23'; // Your Gmail password
+            $mail->Username = 'sanjibshah777@gmail.com'; // Your Gmail email address
+            $mail->Password = 'umbgmrrzprddjjfo'; // Your Gmail password
             $mail->SMTPSecure = 'tls';
-            $mail->Port = 993;
+            $mail->Port = 587;
 
             // Recipients
-            $mail->setFrom('paudelnabin41@gmail.com', 'Sanjib Shah');
+            $mail->setFrom('sanjibshah777@gmail.com', 'Sanjib Shah');
             $mail->addAddress($email);
 
             // Content
@@ -69,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "message sent";
             return true;
         } catch (Exception $e) {
-            echo("Exception Mailer "+ $e);
+            // echo("Exception Mailer "+ $e);
             return false;
         }
     }
@@ -84,25 +85,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION["verification_code"] = $verificationCode;
         $_SESSION["email"] = $email;
-
+        $stmt = $conn->prepare("INSERT INTO user (Name, Email, Phone, Gender, DateOfBirth, Address, Password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $full_name, $email, $phone, $gender, $dob, $address, $hashed_password);
+    $stmt->execute();
+    $stmt->close();
         // Redirect to the verification page
-        header("Location: verification.php");
-        exit();
+        // header("Location: verification.php");
+        // exit();
     } else {
         echo "Failed to send verification email.";
         exit(); // Add exit() to stop further execution if email sending fails
     }
 
     // Prepare and execute the SQL query to insert data into the table
-    $stmt = $conn->prepare("INSERT INTO user_data (full_name, email, phone, gender, dob, address, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $full_name, $email, $phone, $gender, $dob, $address, $hashed_password);
-    $stmt->execute();
-    $stmt->close();
+    
 
     $conn->close();
 
     // You can redirect the user to a thank-you page or do other processing here
-    header("Location: index.html");
+    header("Location: verification.php");
     exit();
 }
 ?>
