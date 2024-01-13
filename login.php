@@ -20,6 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $sql = "SELECT * FROM healthrecord WHERE UserID = $userID ORDER BY RecordID ASC";
   $result = $conn->query($sql);
+  if (!$result) {
+    $_SESSION['login_status']="Invalid email and password";
+    echo ("Invalid Login request " );
+}
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
       $_SESSION['systolic'] = $row["SystolicPressure"];
@@ -29,19 +33,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['bmi'] = $bmi;
       $_SESSION['bmr'] = $bmr;
       $_SESSION['mbp'] = $mbp;
+      $_SESSION['login_status'] = "login successfully";
     }
   }
-
+  else{
+    echo "";
+  }
   // Verify the entered password with the hashed password from the database
   if (password_verify($password, $hashed_password)) {
     $_SESSION['user_id'] = $userID;
     $_SESSION['Name'] = $name;
     $_SESSION['Email'] = $email;
+    
     // Additional actions after successful login can be added here
     header("Location: dashboard\pages\app.php");
     exit();
   } else {
-    echo "Invalid email or password.";
+    $_SESSION['login_status']="Invalid email and password";
+    // echo "Invalid email or password.";
   }
   // Close the database connection
   $conn->close();
@@ -167,7 +176,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         unset($_SESSION['message_add']);
         } 
         ?>
-        
+        <?php if (isset($_SESSION['login_status'])){ ?>
+          alertify.set('notifier','delay', 2);
+        alertify.set('notifier','position', 'top-right');
+        alertify.error('<?php echo $_SESSION['login_status'] ?>');
+        <?php 
+        unset($_SESSION['login_status']);
+        } 
+        ?>
       </script>
   <!-- Add your custom scripts here if needed -->
 

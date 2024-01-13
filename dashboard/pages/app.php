@@ -16,6 +16,9 @@ $row = mysqli_fetch_assoc($result);
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>Health Metrics Dashboard</title>
+    <!-- alertify -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
@@ -60,6 +63,18 @@ $row = mysqli_fetch_assoc($result);
             break;
     }
     ?>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+      <script>
+        <?php if (isset($_SESSION['login_status'])){ ?>
+          alertify.set('notifier','delay', 2);
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('<?php echo $_SESSION['login_status'] ?>');
+        <?php 
+        unset($_SESSION['login_status']);
+        } 
+        ?>
+        
+      </script>
 </body>
 
 </html>
